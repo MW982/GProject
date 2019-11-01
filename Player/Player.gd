@@ -34,10 +34,9 @@ func _input(event):
 				camera.rotate_x(deg2rad(-x_delta))
 				camera_x_rotation += x_delta
 		else:
-			#var l = sqrt(TP.translation.y*TP.translation.y + TP.translation.z*TP.translation.z)
-			#cameraTP.rotate_x(deg2rad(-1))
-			print('Position: %s %s %s' % [TP.translation.x, TP.translation.y, TP.translation.z])
-			
+			if Input.is_mouse_button_pressed(BUTTON_MIDDLE):
+				TP.rotate_x(event.relative.x*mouse_sensitivity)
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
