@@ -1,9 +1,9 @@
 extends KinematicBody
 
-export var speed = 20
-export var acceleration = 7 
+export var speed = 200
+export var acceleration = 7
 export var gravity = 0.98
-export var jump_power = 30 
+export var jump_power = 30
 export var mouse_sensitivity = 0.3
 
 onready var head = $Head
@@ -11,6 +11,9 @@ onready var camera = $Head/Camera
 
 onready var TP = $TP
 onready var cameraTP = $TP/CameraTP
+
+onready var Weapon = $Weapon
+
 
 var velocity = Vector3()
 var camera_x_rotation = 0
@@ -57,7 +60,7 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("move_l"):
 		direction -= head_basis.x
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump"): #and is_on_floor()
 		velocity.y += jump_power 
 		
 	direction = direction.normalized()
