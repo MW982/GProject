@@ -9,7 +9,7 @@ func _ready():
 func start_menu_pressed(button_name):
 	if button_name == "start":
 		print("Start Game!")
-		get_tree().change_scene("res://Scenes/World.tscn")
+		get_tree().change_scene("res://World.tscn")
 	elif button_name == "online":
 		print("Online Game!")
 	elif button_name == "quit":
