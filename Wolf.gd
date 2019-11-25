@@ -4,7 +4,7 @@ var gravity = 0.98
 export var speed = 10
 export var acceleration = 10
 
-onready var player_pos = get_node('/root/World/Player/').get('translation')
+onready var player = get_node('/root/World/Player/')
 var velocity = Vector3()
 
 var dir
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector3.UP)
 
 func _on_LookForPlayer_timeout():
-	player_pos = get_node('/root/World/Player/').get('translation')
+	var player_pos = player.get('translation')
 	var direction = player_pos - translation
 	var distance = sqrt(direction.x*direction.x+direction.y*direction.y+direction.z*direction.z)
 	if distance < 20:
