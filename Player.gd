@@ -1,7 +1,7 @@
 extends KinematicBody
 
 export var health = 100
-export var speed = 200
+export var speed = 60
 export var velocity = Vector3()
 export var acceleration = 7
 export var gravity = 0.98

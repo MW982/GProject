@@ -16,6 +16,6 @@ func _ready():
 	for i in range(0,20):	
 		var newobj = Obj.instance()
 		pos = Vector3(randf()*202-101, 0, randf()*202-101)
-		newobj.connect("item", Player, "update_inventory" )
-		newobj.set_position(pos)
+		newobj.connect("item", Player, "update_inventory")
+		newobj.setup("b1", pos)
 		add_child(newobj)
