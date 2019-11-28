@@ -2,6 +2,8 @@ extends Spatial
 
 onready var Wolf = preload("res://Wolf.tscn")
 onready var Obj = preload("res://PickableObj.tscn")
+onready var lampObj = preload("res://Lamp.tscn")
+
 onready var Player = get_node("Player")
 
 #const chunkSize = 64
@@ -22,21 +24,28 @@ func _ready():
 #	noise.period = 80
 #
 #	thread = Thread.new()
-#
+	var lamp = load("res://assets/lantern.obj")
+	var lion = load("res://assets/Lion.obj")
 	for i in range(0,20):
 		var newobj = Wolf.instance()
 		pos = Vector3(randf()*202-101, 0, randf()*202-101)
 		newobj.set_position(pos)
 		add_child(newobj)
-
-	var lion = load("res://assets/Lion.obj")
+		
 	for i in range(0,20):
 		var newobj = Obj.instance()
 		pos = Vector3(randf()*202-101, -2, randf()*202-101)
 		newobj.connect("item", Player, "update_inventory")
-		newobj.setup("b1", pos, lion)
+		newobj.setup("Item1", pos, lion)
 		add_child(newobj)
-
+	
+	for i in range(0,20):
+		var newobj = lampObj.instance()
+		pos = Vector3(randf()*202-101, -2, randf()*202-101)
+		newobj.setup("Lamp", Player, pos, lamp)
+		add_child(newobj)
+	
+	
 
 #func add_chunk(x, z):
 #	var key = str(x) + "," + str(z)
@@ -100,4 +109,3 @@ func _ready():
 #	for key in chunks:
 #		chunks[key].shouldRemove = true
 #
-

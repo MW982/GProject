@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Lamp.gd" type="Script" id=1]
+[ext_resource path="res://PickableObj.tscn" type="PackedScene" id=2]
+
+[node name="Lamp" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 0.909804, 0.729412, 0.0235294, 1 )
+shadow_enabled = true
+omni_range = 15.0
+omni_shadow_mode = 0
+
+[node name="PickableObj" parent="." instance=ExtResource( 2 )]
