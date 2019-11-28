@@ -1,10 +1,14 @@
 extends KinematicBody
 
-export var speed = 200
+export var health = 100
+export var speed = 60
+export var velocity = Vector3()
 export var acceleration = 7
 export var gravity = 0.98
 export var jump_power = 30
 export var mouse_sensitivity = 0.3
+
+var camera_x_rotation = 0
 
 onready var head = $Head
 onready var camera = $Head/Camera
@@ -15,18 +19,13 @@ onready var cameraTP = $TP/CameraTP
 onready var Weapon = $Weapon
 
 
-var velocity = Vector3()
-var camera_x_rotation = 0
-
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 
 func _input(event):
 	if event.is_action_pressed("camera"):
 		camera.set_current(not camera.current)
-		print('Change view FP: %s, TP: %s' % [camera.current, cameraTP.current])
+		print("Change view FP: %s, TP: %s" % [camera.current, cameraTP.current])
 	
 	if event is InputEventMouseMotion:
 		if camera.is_current():
@@ -40,11 +39,9 @@ func _input(event):
 			if Input.is_mouse_button_pressed(BUTTON_MIDDLE):
 				TP.rotate_x(event.relative.x*mouse_sensitivity)
 
-
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
-
 
 func _physics_process(delta):
 	var direction = Vector3()
@@ -68,3 +65,6 @@ func _physics_process(delta):
 	velocity = velocity.linear_interpolate(direction*speed, acceleration*delta)
 	velocity.y -= gravity
 	velocity = move_and_slide(velocity, Vector3.UP)
+
+func update_inventory(items_name):
+	print("Update inventory %s" % items_name)
