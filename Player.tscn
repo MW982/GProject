@@ -43,12 +43,10 @@ cast_to = Vector3( 0, 2, 0 )
 [node name="Inventory" type="Node" parent="."]
 
 [node name="TP" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48676, 3.84312 )
 visible = false
 
 [node name="CameraTP" type="Camera" parent="TP"]
-current = true
 far = 1000.0
 
 [node name="MeshInstance" type="MeshInstance" parent="TP"]
@@ -56,7 +54,6 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="GimbalY" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 0.9092, 0.41636, 0, -0.41636, 0.9092, 0, 0, 0 )
 visible = false
 script = ExtResource( 2 )

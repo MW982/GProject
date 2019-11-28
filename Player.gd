@@ -25,7 +25,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("camera"):
 		camera.set_current(not camera.current)
-		print('Change view FP: %s, TP: %s' % [camera.current, cameraTP.current])
+		print("Change view FP: %s, TP: %s" % [camera.current, cameraTP.current])
 	
 	if event is InputEventMouseMotion:
 		if camera.is_current():

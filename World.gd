@@ -13,9 +13,10 @@ func _ready():
 		newobj.set_position(pos)
 		add_child(newobj)
 		
-	for i in range(0,20):	
+	var lion = load("res://assets/Lion.obj")
+	for i in range(0,20):
 		var newobj = Obj.instance()
 		pos = Vector3(randf()*202-101, 0, randf()*202-101)
 		newobj.connect("item", Player, "update_inventory")
-		newobj.setup("b1", pos)
+		newobj.setup("b1", pos, lion)
 		add_child(newobj)
