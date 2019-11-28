@@ -10,8 +10,9 @@ export var mouse_sensitivity = 0.3
 
 var camera_x_rotation = 0
 
-onready var head = $Head
-onready var camera = $Head/Camera
+onready var headX = $HeadX
+onready var camera = $HeadX/HeadY/Camera
+onready var headY = $HeadX/HeadY
 
 onready var TP = $TP
 onready var cameraTP = $TP/CameraTP
@@ -29,11 +30,11 @@ func _input(event):
 	
 	if event is InputEventMouseMotion:
 		if camera.is_current():
-			head.rotate_y(deg2rad(-event.relative.x*mouse_sensitivity))
+			headX.rotate_y(deg2rad(-event.relative.x*mouse_sensitivity))
 			
 			var x_delta = event.relative.y*mouse_sensitivity
 			if camera_x_rotation + x_delta > -70 and camera_x_rotation + x_delta < 70: 
-				camera.rotate_x(deg2rad(-x_delta))
+				headY.rotate_x(deg2rad(-x_delta))
 				camera_x_rotation += x_delta
 		else:
 			if Input.is_mouse_button_pressed(BUTTON_MIDDLE):
@@ -45,7 +46,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	var direction = Vector3()
-	var head_basis = head.get_global_transform().basis
+	var head_basis = headX.get_global_transform().basis
 	
 	if Input.is_action_pressed("move_f"):
 		direction -= head_basis.z
