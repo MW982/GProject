@@ -2,6 +2,7 @@ extends Spatial
 
 export var items_name = "Base Item"
 export var asset_path = ""
+export var item_icon = "res://assets/lamp.png"
 
 onready var prompt = get_node("Prompt/Label")
 onready var sbody = get_node("MeshInstance/StaticBody")
@@ -46,5 +47,5 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("pick_up") and prompt.visible and sbody.get_instance_id() == obj.get_instance_id():
 		#print("Pick Up")
-		emit_signal("item", items_name)
+		emit_signal("item", self)
 		queue_free()
