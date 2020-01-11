@@ -19,7 +19,7 @@ onready var cameraTP = $TP/CameraTP
 
 onready var Weapon = $Weapon
 
-var inventory = [{"name":"fake item"}]
+var inventory = []
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -73,12 +73,17 @@ func _physics_process(delta):
 
 func update_inventory(body):
 	var inventoryLenght = inventory.size()
+	if inventoryLenght == 0:
+		inventory.append(body.duplicate())
+		var gui = get_node("../GUI")
+		gui.updateInventory(inventory)
+		return
 	
 	for i in inventoryLenght:
 		if inventory[i].name == body.items_name:
 			print("item already in inventory!")
 		else:
-			inventory.append(body)
-			var gui = get_node("../GUI");
-			gui.updateInventory(inventory);
+			inventory.append(body.duplicate())
+			var gui = get_node("../GUI")
+			gui.updateInventory(inventory)
 			return

@@ -18,3 +18,4 @@ margin_left = 14.7563
 margin_top = 17.108
 margin_right = 622.756
 margin_bottom = 75.108
+[connection signal="item_selected" from="Panel/ItemList" to="." method="_on_ItemList_item_selected"]
