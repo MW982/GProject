@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Ground.gd" type="Script" id=3]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -27,10 +26,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.83142, -2 )
 [node name="Skybox" type="WorldEnvironment" parent="."]
 
 [node name="Ground" type="MeshInstance" parent="."]
+editor/display_folded = true
 transform = Transform( 200, 0, 0, 0, 1, 0, 0, 0, 200, 0.0960483, -3.54722, 0.339961 )
 mesh = SubResource( 1 )
 material/0 = null
-script = ExtResource( 3 )
 
 [node name="StaticBody" type="StaticBody" parent="Ground"]
 
@@ -38,6 +37,7 @@ script = ExtResource( 3 )
 shape = SubResource( 2 )
 
 [node name="Ground2" type="MeshInstance" parent="."]
+editor/display_folded = true
 transform = Transform( 20, 0, 0, 0, 9.39693, -6.8404, 0, 3.4202, 18.7939, -24.0749, -5.31152, -81.3378 )
 mesh = SubResource( 1 )
 material/0 = null
@@ -48,6 +48,7 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="Spatial" type="Spatial" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 0.328379, -0.944546, 0, 0.944546, 0.328379, 0, 0, 0 )
 
 [node name="Spatial" type="Spatial" parent="Spatial"]
@@ -86,4 +87,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8989, -1.77953, 3.92185 )
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
-[node name="GUI" parent="." instance=ExtResource( 4 )]
+[node name="GUI" parent="." instance=ExtResource( 3 )]

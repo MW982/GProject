@@ -5,7 +5,7 @@ export var asset_path = ""
 export var item_icon = "res://assets/lamp.png"
 
 onready var prompt = get_node("Prompt/Label")
-onready var sbody = get_node("MeshInstance/StaticBody")
+onready var sbody = get_node("../MeshInstance/StaticBody")
 onready var player = get_node("/root/World/Player/")
 onready var player_hand = get_node("/root/World/Player/HeadX/HeadY/Weapon/RayCast")
 
@@ -16,11 +16,6 @@ signal item(items_name)
 func setup(items_name_, pos_, asset_=asset_path):
 	items_name = items_name_
 	set_position(pos_)
-	get_node("MeshInstance").set_mesh(asset_)
-	var collision_shape = ConcavePolygonShape.new()
-	var faces = get_node("MeshInstance").get_mesh().get_faces()
-	collision_shape.set_faces(faces)
-	get_node("MeshInstance/StaticBody/CollisionShape").set_shape(collision_shape)
 
 func set_position(pos):
 	translation = pos

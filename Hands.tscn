@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/raczki_glockpatdzialanozobaczymy3.dae" type="PackedScene" id=1]
+
+[node name="Hands" instance=ExtResource( 1 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+
+[node name="Armature001" parent="." index="1"]
+transform = Transform( -0.0535307, -0.000637098, -0.000316818, 0.000316168, 5.65087e-05, -0.0535344, 0.000637421, -0.0535316, -5.27402e-05, 0, 1.62068, -0.198057 )
+
+[node name="Camera" parent="." index="2"]
+transform = Transform( -0.666608, 0.00394528, -0.00793362, 0.00393718, 0.666655, 0.00070364, 0.00793764, 0.000656724, -0.666619, 0, 1.62068, -0.198057 )
+
+[node name="AnimationPlayer" parent="." index="3"]
+autoplay = "walkin2"

@@ -43,6 +43,9 @@ func _input(event):
 		else:
 			if Input.is_mouse_button_pressed(BUTTON_MIDDLE):
 				TP.rotate_x(event.relative.x*mouse_sensitivity)
+	
+	if event.is_action_pressed("shot"):
+		get_node("HeadX/HeadY/Weapon/Hands/AnimationPlayer").play("shooting")
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
