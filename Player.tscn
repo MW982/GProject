@@ -31,9 +31,6 @@ transform = Transform( -1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74
 [node name="Hands" parent="HeadX/HeadY/Weapon" instance=ExtResource( 2 )]
 transform = Transform( 2, -5.0822e-21, 3.49691e-07, -3.49691e-07, -8.74228e-08, 2, 1.52855e-14, -2, -8.74228e-08, 0.239998, -0.734745, 2.87783 )
 
-[node name="Armature001" parent="HeadX/HeadY/Weapon/Hands" index="1"]
-transform = Transform( -0.0535307, -0.000637098, -0.000316818, 0.000316168, 5.65087e-05, -0.0535344, 0.000637421, -0.0535316, -5.27402e-05, 0, 1.62068, -0.198057 )
-
 [node name="BulletEmitter" type="Spatial" parent="HeadX/HeadY/Weapon/Hands/Armature001/Skeleton" index="1"]
 transform = Transform( 1, -4.65661e-09, 2.7012e-10, -3.72529e-09, 1, 0, 1.90539e-09, 1.74623e-09, 1, 2.7745, -23.939, 0.937407 )
 script = ExtResource( 3 )
