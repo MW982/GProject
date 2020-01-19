@@ -5,8 +5,8 @@
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 2.58472
-margin_bottom = 2.58472
+margin_top = 1.47669
+margin_bottom = 1.47668
 script = ExtResource( 1 )
 
 [node name="BG_Animation" type="Spatial" parent="."]
@@ -35,22 +35,15 @@ align = 1
 valign = 1
 
 [node name="Button_Start" type="Button" parent="Start_Menu"]
-margin_left = 111.708
-margin_top = 210.0
-margin_right = 273.708
-margin_bottom = 272.0
+margin_left = 110.708
+margin_top = 222.188
+margin_right = 272.708
+margin_bottom = 284.188
 text = "Start"
 
-[node name="Button_Online" type="Button" parent="Start_Menu"]
-margin_left = 116.0
-margin_top = 292.292
-margin_right = 276.0
-margin_bottom = 356.292
-text = "Online"
-
 [node name="Button_Quit" type="Button" parent="Start_Menu"]
-margin_left = 119.708
-margin_top = 381.199
-margin_right = 272.708
-margin_bottom = 468.199
+margin_left = 113.06
+margin_top = 342.418
+margin_right = 266.06
+margin_bottom = 429.418
 text = "Quit"

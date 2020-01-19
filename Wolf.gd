@@ -1,6 +1,8 @@
 extends KinematicBody
 
 var gravity = 0.98
+
+export var health = 100
 export var speed = 10
 export var acceleration = 10
 
@@ -13,15 +15,18 @@ var delta_
 func _ready():
 	dir = Vector3()
 
+
 func set_position(pos):
 	#print('translation.x = %s' % translation.x)
 	translation = pos 
+
 
 func _physics_process(delta):
 	delta_ = delta
 	velocity = velocity.linear_interpolate(dir.normalized()*speed, acceleration*delta)		
 	velocity.y -= gravity
 	velocity = move_and_slide(velocity, Vector3.UP)
+
 
 func _on_LookForPlayer_timeout():
 	var player_pos = player.get("translation")
@@ -31,5 +36,12 @@ func _on_LookForPlayer_timeout():
 		dir = direction
 		dir.y = 0
 
+
 func _on_ChangeDirection_timeout():
 	dir = Vector3(randf()*20-10, 0, randf()*20-10)
+
+
+func damage(dmg):
+	health -= dmg
+	if health <= 0:
+		queue_free()

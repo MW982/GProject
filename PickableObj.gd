@@ -13,16 +13,20 @@ var obj
 
 signal item(items_name)
 
+
 func setup(items_name_, pos_, asset_=asset_path):
 	items_name = items_name_
 	set_position(pos_)
 
+
 func set_position(pos):
 	translation = pos
+
 
 func _ready():
 	prompt.text = "Click E to pick up %s" % items_name
 	prompt.visible = false
+	
 	
 func _process(delta):
 	var player_pos = player.get("translation")
@@ -38,6 +42,7 @@ func _process(delta):
 		prompt.visible = true
 	else:
 		prompt.visible = false
+
 
 func _input(event):
 	if event.is_action_pressed("pick_up") and prompt.visible and sbody.get_instance_id() == obj.get_instance_id():

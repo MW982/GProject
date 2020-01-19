@@ -13,19 +13,22 @@ var camera_x_rotation = 0
 onready var headX = $HeadX
 onready var camera = $HeadX/HeadY/Camera
 onready var headY = $HeadX/HeadY
+onready var animationPlayer = $HeadX/HeadY/Weapon/Hands/AnimationPlayer
 
 onready var TP = $TP
 onready var cameraTP = $TP/CameraTP
 
 onready var Weapon = $Weapon
 
+onready var Bullet = preload("res://Bullet.tscn")
+
 var inventory = []
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 	var gui = get_node("../GUI");
 	gui.updateInventory(inventory);
+
 
 func _input(event):
 	if event.is_action_pressed("camera"):
@@ -45,11 +48,14 @@ func _input(event):
 				TP.rotate_x(event.relative.x*mouse_sensitivity)
 	
 	if event.is_action_pressed("shot"):
-		get_node("HeadX/HeadY/Weapon/Hands/AnimationPlayer").play("shooting")
+		animationPlayer.play("shooting")
+		get_node("HeadX/HeadY/Weapon/Hands/Armature001/Skeleton/BulletEmitter").emit_bullet()
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
+
 
 func _physics_process(delta):
 	var direction = Vector3()
@@ -57,13 +63,22 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move_f"):
 		direction -= head_basis.z
+		if not animationPlayer.is_playing():
+			animationPlayer.play("walkin")
 	elif Input.is_action_pressed("move_b"):
 		direction += head_basis.z
+		if not animationPlayer.is_playing():
+			animationPlayer.play("walkin")
 	
 	if Input.is_action_pressed("move_r"):
 		direction += head_basis.x
+		if not animationPlayer.is_playing():
+			animationPlayer.play("walkin")
+			
 	elif Input.is_action_pressed("move_l"):
 		direction -= head_basis.x
+		if not animationPlayer.is_playing():
+			animationPlayer.play("walkin")
 		
 	if Input.is_action_just_pressed("jump"): #and is_on_floor()
 		velocity.y += jump_power 
@@ -73,6 +88,7 @@ func _physics_process(delta):
 	velocity = velocity.linear_interpolate(direction*speed, acceleration*delta)
 	velocity.y -= gravity
 	velocity = move_and_slide(velocity, Vector3.UP)
+
 
 func update_inventory(body):
 	var inventoryLenght = inventory.size()
@@ -90,3 +106,7 @@ func update_inventory(body):
 			var gui = get_node("../GUI")
 			gui.updateInventory(inventory)
 			return
+
+
+func damage(dmg):
+	pass
