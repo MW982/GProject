@@ -23,21 +23,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033226, -0.00802994, -0.00
 [node name="Skybox" type="WorldEnvironment" parent="BG_Animation"]
 
 [node name="Campfire" parent="BG_Animation" instance=ExtResource( 2 )]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6202, -1.54237, -7.51135 )
 
 [node name="AudioStreamPlayer3D" parent="BG_Animation/Campfire" index="3"]
 autoplay = false
 
 [node name="Start_Menu" type="Panel" parent="."]
-margin_left = 81.0
-margin_top = -4.0
-margin_right = 448.0
-margin_bottom = 602.0
+anchor_bottom = 1.0
+margin_left = 101.36
+margin_top = 1.36037
+margin_right = 501.36
+margin_bottom = 1.36035
 
 [node name="Title_Label" type="Label" parent="Start_Menu"]
-margin_left = 2.0
+margin_left = 15.6038
 margin_top = 3.70764
-margin_right = 185.0
+margin_right = 198.604
 margin_bottom = 76.7076
 rect_scale = Vector2( 2, 2 )
 text = "Main Menu 
@@ -46,37 +48,37 @@ align = 1
 valign = 1
 
 [node name="Button_Start" type="Button" parent="Start_Menu"]
-margin_left = 110.708
+margin_left = 124.312
 margin_top = 222.188
-margin_right = 272.708
+margin_right = 286.312
 margin_bottom = 284.188
 text = "Start"
 
 [node name="Button_Quit" type="Button" parent="Start_Menu"]
-margin_left = 113.06
+margin_left = 126.664
 margin_top = 386.739
-margin_right = 266.06
+margin_right = 279.664
 margin_bottom = 473.739
 text = "Quit"
 
 [node name="Button_Settings" type="Button" parent="Start_Menu"]
-margin_left = 109.695
+margin_left = 123.299
 margin_top = 308.033
-margin_right = 271.695
+margin_right = 285.299
 margin_bottom = 366.033
 text = "Settings"
 
 [node name="SettingsPanel" type="PopupPanel" parent="."]
 visible = true
-margin_left = 485.92
-margin_top = 37.7841
-margin_right = 958.92
-margin_bottom = 381.784
+margin_left = 537.615
+margin_top = 36.4237
+margin_right = 1010.61
+margin_bottom = 380.424
 
 [node name="Control" type="Control" parent="SettingsPanel"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 469.0
+margin_right = 468.995
 margin_bottom = 340.0
 
 [node name="Fullscreen" type="CheckBox" parent="SettingsPanel/Control"]
