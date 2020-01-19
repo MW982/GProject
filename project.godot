@@ -18,10 +18,6 @@ _global_script_class_icons={
 config/name="GProject"
 run/main_scene="res://Menu.tscn"
 
-[display]
-
-window/size/borderless=true
-
 [input]
 
 move_f={

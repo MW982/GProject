@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/smoke.tres" type="Material" id=1]
 [ext_resource path="res://assets/campfire.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/sounds/170247__matucha__campfire-01.wav" type="AudioStream" id=3]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.0962963, 0.385185, 0.651852, 0.874074 )
@@ -132,3 +133,10 @@ material/20 = null
 material/21 = null
 material/22 = null
 material/23 = null
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7359, 0 )
+stream = ExtResource( 3 )
+unit_db = 16.0
+max_db = 2.0
+autoplay = true

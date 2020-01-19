@@ -50,6 +50,7 @@ func _input(event):
 	if event.is_action_pressed("shot"):
 		animationPlayer.play("shooting")
 		get_node("HeadX/HeadY/Weapon/Hands/Armature001/Skeleton/BulletEmitter").emit_bullet()
+
 	
 
 func _process(delta):
