@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Campfire.tscn" type="PackedScene" id=2]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -12,10 +13,14 @@ script = ExtResource( 1 )
 [node name="BG_Animation" type="Spatial" parent="."]
 
 [node name="Menu_Camera" type="Camera" parent="BG_Animation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033226, -0.00802994, -0.00143182 )
 
 [node name="Animation_Player" type="AnimationPlayer" parent="BG_Animation"]
 
 [node name="Skybox" type="WorldEnvironment" parent="BG_Animation"]
+
+[node name="Campfire" parent="BG_Animation" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6202, -1.54237, -7.51135 )
 
 [node name="Start_Menu" type="Panel" parent="."]
 margin_left = 81.0

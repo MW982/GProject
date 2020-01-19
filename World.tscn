@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/terrain.material" type="Material" id=3]
 [ext_resource path="res://assets/water.material" type="Material" id=4]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Campfire.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -51,10 +52,10 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="Spatial" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 0.328379, -0.944546, 0, 0.944546, 0.328379, 0, 0, 0 )
 
 [node name="Spatial" type="Spatial" parent="Spatial"]
+transform = Transform( 0.993049, 0.111178, 0.038652, -0.111178, 0.993798, -0.00215608, -0.038652, -0.00215614, 0.99925, 0, 0, 0 )
 
 [node name="SpotLight" type="SpotLight" parent="Spatial/Spatial"]
 transform = Transform( -0.278171, 0.315419, -0.907266, 0.907266, 0.396449, -0.140342, 0.315418, -0.862171, -0.396449, 0.0314178, 86.5061, 0.186857 )
@@ -91,6 +92,9 @@ mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
+
+[node name="Campfire" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61006, -2.29097, -15.1187 )
 
 [editable path="Player"]
 

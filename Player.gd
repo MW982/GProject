@@ -74,6 +74,7 @@ func _physics_process(delta):
 		direction += head_basis.x
 		if not animationPlayer.is_playing():
 			animationPlayer.play("walkin")
+
 			
 	elif Input.is_action_pressed("move_l"):
 		direction -= head_basis.x
@@ -109,4 +110,7 @@ func update_inventory(body):
 
 
 func damage(dmg):
-	pass
+	health -= dmg
+	if health <= 0:
+		print("end")
+		queue_free()

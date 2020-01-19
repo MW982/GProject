@@ -5,6 +5,7 @@ var gravity = 0.98
 export var health = 100
 export var speed = 10
 export var acceleration = 10
+export var damage = 10
 
 onready var player = get_node("/root/World/Player/")
 var velocity = Vector3()
@@ -35,6 +36,7 @@ func _on_LookForPlayer_timeout():
 	if distance < 20:
 		dir = direction
 		dir.y = 0
+#		player.damage(damage)
 
 
 func _on_ChangeDirection_timeout():
@@ -43,5 +45,6 @@ func _on_ChangeDirection_timeout():
 
 func damage(dmg):
 	health -= dmg
+	speed += 5
 	if health <= 0:
 		queue_free()
