@@ -3,37 +3,36 @@
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/terrain.material" type="Material" id=3]
-[ext_resource path="res://assets/water.material" type="Material" id=4]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Campfire.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Campfire.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/tree1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/tree2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/tree5.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/tree3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/tree7.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
-[sub_resource type="PrismMesh" id=3]
-
-[sub_resource type="SphereMesh" id=4]
-
-[sub_resource type="CylinderMesh" id=5]
-
-[sub_resource type="SpatialMaterial" id=6]
-
 [node name="World" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.83142, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.03466, -10.6331 )
 
 [node name="Skybox" type="WorldEnvironment" parent="."]
 
 [node name="Ground" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 200, 0, 0, 0, 1, 0, 0, 0, 200, 0.179977, -3.32843, 0.333278 )
+transform = Transform( 200, 0, 0, 0, 1, 0, 0, 0, 200, -0.593524, -3.31662, -0.505099 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody" type="StaticBody" parent="Ground"]
 
@@ -42,9 +41,12 @@ shape = SubResource( 2 )
 
 [node name="Ground2" type="MeshInstance" parent="."]
 editor/display_folded = true
-transform = Transform( 20, 0, 0, 0, 9.39693, -6.8404, 0, 3.4202, 18.7939, -24.0749, -5.31152, -81.3378 )
+transform = Transform( 20, 0, 0, 0, 9.39693, -6.8404, 0, 3.4202, 18.7939, -24.0749, -5.31152, -123.65 )
 mesh = SubResource( 1 )
 material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody" type="StaticBody" parent="Ground2"]
 
@@ -52,7 +54,11 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="Spatial" type="Spatial" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 0.328379, -0.944546, 0, 0.944546, 0.328379, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Spatial" type="Spatial" parent="Spatial"]
 transform = Transform( 0.993049, 0.111178, 0.038652, -0.111178, 0.993798, -0.00215608, -0.038652, -0.00215614, 0.99925, 0, 0, 0 )
@@ -66,35 +72,121 @@ shadow_enabled = true
 spot_range = 335.68
 spot_angle = 42.5008
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.540304, -17.0902 )
-mesh = SubResource( 3 )
-material/0 = null
+[node name="GUI" parent="." instance=ExtResource( 4 )]
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.536683, 16.0974 )
-mesh = SubResource( 3 )
-material/0 = null
+[node name="CentralPark" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="MeshInstance3" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8098, 1.27044, 0.609774 )
-mesh = SubResource( 3 )
-material/0 = null
-
-[node name="MeshInstance4" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0068, 1.03925, -0.350828 )
-mesh = SubResource( 4 )
-material/0 = ExtResource( 4 )
-
-[node name="MeshInstance5" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8989, -1.77953, 3.92185 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
-
-[node name="GUI" parent="." instance=ExtResource( 5 )]
-
-[node name="Campfire" parent="." instance=ExtResource( 6 )]
+[node name="Campfire" parent="CentralPark" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61006, -2.29097, -15.1187 )
+
+[node name="tree1" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 3.47471, 0 )
+
+[node name="tree2" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 2.11767, 0, 2.12496, 0, 3, 0, -2.12496, 0, 2.11767, 30.1672, 3.56722, 0.110357 )
+
+[node name="tree34" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 2.60029, 0, -1.49617, 0, 3, 0, 1.49617, 0, 2.60029, 18.9094, 3.56722, -3.21001 )
+
+[node name="tree35" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 2.69679, 0, 1.31427, 0, 3, 0, -1.31427, 0, 2.69679, 18.9094, 3.56722, -23.9414 )
+
+[node name="tree3" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 1.33464, 0, 2.68677, 0, 3, 0, -2.68677, 0, 1.33464, 30.1264, 3.47471, -28.4128 )
+
+[node name="tree4" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 2.10387, 0, 2.13863, 0, 3, 0, -2.13863, 0, 2.10387, -22.9279, 3.47471, -28.4128 )
+
+[node name="tree5" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 1.61899, 0, -2.52565, 0, 3, 0, 2.52565, 0, 1.61899, 8.17959, 3.47471, -16.2351 )
+
+[node name="tree6" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 2.69831, 0, -4.20941, 0, 5, 0, 4.20941, 0, 2.69831, 8.17959, 7.56604, 35.2404 )
+
+[node name="tree7" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -24.2422, 9.01069, 32.0522 )
+
+[node name="tree8" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -24.2422, 3.543, -12.3077 )
+
+[node name="tree9" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( 1.79711, 0, -2.40217, 0, 3, 0, 2.40217, 0, 1.79711, -1.6619, 3.543, -29.9706 )
+
+[node name="tree10" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( 2.84841, 0, 0.941581, 0, 3, 0, -0.941581, 0, 2.84841, 25.5092, 3.543, -13.8973 )
+
+[node name="tree11" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( 1.01728, 0, 2.82226, 0.212469, 2.99149, -0.0765844, -2.81425, 0.22585, 1.0144, 25.5092, 3.37333, 14.3077 )
+
+[node name="tree12" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( 1.89671, -0.0752396, 2.32311, 0.212469, 2.99149, -0.0765844, -2.31459, 0.212949, 1.89666, -16.2547, 3.37333, 13.2771 )
+
+[node name="tree13" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( 6.96963, 0, -3.92737, 0, 8, 0, 3.92737, 0, 6.96963, 35.8921, 13.5044, 33.1327 )
+
+[node name="tree14" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( 2.61361, 0, -1.47276, 0, 3, 0, 1.47276, 0, 2.61361, 35.8921, 3.693, -39.9432 )
+
+[node name="tree20" parent="CentralPark" instance=ExtResource( 9 )]
+transform = Transform( -0.655504, 0, 3.94592, 0, 4, 0, -3.94592, 0, -0.655504, -2.58808, 5.63539, -40.119 )
+
+[node name="tree25" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( 2.07872, 0, 3.41744, 0, 4, 0, -3.41744, 0, 2.07872, -35.8006, 5.02827, -25.0825 )
+
+[node name="tree26" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( -2.47821, 0, 3.13982, 0, 4, 0, -3.13982, 0, -2.47821, 36.8439, 5.02827, -16.9587 )
+
+[node name="tree28" parent="CentralPark" instance=ExtResource( 10 )]
+transform = Transform( -10.3145, 0, -3.82251, 0, 11, 0, 3.82251, 0, -10.3145, -4.50587, -3.19338, 23.997 )
+
+[node name="tree27" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( -3.75072, 0, -1.39001, 0, 4, 0, 1.39001, 0, -3.75072, 36.8439, 5.02827, 11.0645 )
+
+[node name="tree15" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( 2.07872, 0, 3.41744, 0, 4, 0, -3.41744, 0, 2.07872, -35.8006, 5.24588, -38.2292 )
+
+[node name="tree18" parent="CentralPark" instance=ExtResource( 7 )]
+transform = Transform( -4.58506, 0, 1.99429, 0, 5, 0, -1.99429, 0, -4.58506, -27.1054, 7.19386, 5.3057 )
+
+[node name="tree17" parent="CentralPark" instance=ExtResource( 9 )]
+transform = Transform( -4.58506, 0, 1.99429, 0, 5, 0, -1.99429, 0, -4.58506, -38.7317, 7.19386, 20.1247 )
+
+[node name="tree16" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( -0.639525, 0, 3.94854, 0, 4, 0, -3.94854, 0, -0.639525, 12.8158, 5.59855, 5.3057 )
+
+[node name="tree19" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 2.83556, 0, 2.82127, 0, 4, 0, -2.82127, 0, 2.83556, 17.3768, 5.88572, -37.8032 )
+
+[node name="tree36" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( 0.510059, 0, 3.94176, 0, 3, 0, -2.95632, 0, 0.680079, 27.8936, 3.1781, -40.6258 )
+
+[node name="tree21" parent="CentralPark" instance=ExtResource( 10 )]
+transform = Transform( 7, 0, 0, 0, 8, 0, 0, 0, 8, 0, -3.07263, 22.8325 )
+
+[node name="tree22" parent="CentralPark" instance=ExtResource( 10 )]
+transform = Transform( -5.40781, 0, -5.07968, 0, 8, 0, 4.44472, 0, -6.18036, 17.2634, -3.07263, 33.9611 )
+
+[node name="tree23" parent="CentralPark" instance=ExtResource( 9 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -11.9047, 7.76007, -33.289 )
+
+[node name="tree24" parent="CentralPark" instance=ExtResource( 6 )]
+transform = Transform( -0.750308, 0, 2.90466, 0, 3, 0, -2.90466, 0, -0.750308, -37.0933, 3.17955, -15.3942 )
+
+[node name="tree29" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 9.81927, 5.7815, -35.2644 )
+
+[node name="tree30" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( 0.133817, 0, -3.99776, 0, 4, 0, 3.99776, 0, 0.133817, -18.5051, 5.7815, -38.153 )
+
+[node name="tree31" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( 3.6408, 0, 1.65668, 0, 4, 0, -1.65668, 0, 3.6408, -8.05347, 5.7815, 7.72432 )
+
+[node name="tree32" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( -3.95162, 0, -0.620254, 0, 4, 0, 0.620254, 0, -3.95162, -29.2395, 5.7815, 14.5799 )
+
+[node name="tree33" parent="CentralPark" instance=ExtResource( 8 )]
+transform = Transform( -3.81455, 0, 1.20383, 0, 4, 0, -1.20383, 0, -3.81455, -40.9402, 5.7815, 0.96773 )
 
 [editable path="Player"]
 
