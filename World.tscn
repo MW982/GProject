@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/tree5.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/tree3.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/tree7.tscn" type="PackedScene" id=10]
+[ext_resource path="res://med.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -187,6 +188,9 @@ transform = Transform( -3.95162, 0, -0.620254, 0, 4, 0, 0.620254, 0, -3.95162, -
 
 [node name="tree33" parent="CentralPark" instance=ExtResource( 8 )]
 transform = Transform( -3.81455, 0, 1.20383, 0, 4, 0, -1.20383, 0, -3.81455, -40.9402, 5.7815, 0.96773 )
+
+[node name="Med" parent="CentralPark" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2484, -1.22991, -11.7084 )
 
 [editable path="Player"]
 

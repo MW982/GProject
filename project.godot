@@ -65,6 +65,13 @@ shot={
  ]
 }
 
+[layer_names]
+
+3d_render/layer_1="ALL"
+3d_physics/layer_1="ALL"
+3d_render/layer_5="HP&AMMO"
+3d_physics/layer_5="HP&AMMO"
+
 [rendering]
 
 quality/subsurface_scattering/quality=2

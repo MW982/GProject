@@ -20,7 +20,6 @@ onready var cameraTP = $TP/CameraTP
 
 onready var Weapon = $Weapon
 
-onready var Bullet = preload("res://Bullet.tscn")
 
 var inventory = []
 
@@ -115,3 +114,9 @@ func damage(dmg):
 	if health <= 0:
 		print("end")
 		queue_free()
+
+
+func heal(hp):
+	health += hp
+	if health > 100:
+		health = 100

@@ -69,7 +69,6 @@ margin_bottom = 366.033
 text = "Settings"
 
 [node name="SettingsPanel" type="PopupPanel" parent="."]
-visible = true
 margin_left = 537.615
 margin_top = 36.4237
 margin_right = 1010.61
