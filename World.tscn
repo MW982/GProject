@@ -234,6 +234,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1481, -1.7377, -8.37334 )
 [node name="Med" parent="CentralPark" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4326, -1.77225, -11.241 )
 
+[node name="Ammo2" parent="CentralPark" instance=ExtResource( 13 )]
+
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.966256, 0.167999, -0.195256, -0.257402, -0.601366, 0.756375, 0.00964996, 0.781112, 0.624317, 27.1858, 59.7915, 25.4739 )
 visible = false

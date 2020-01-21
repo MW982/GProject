@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Cloud.gd" type="Script" id=1]
+[ext_resource path="res://assets/Low poly clouds/Cloud_1.obj" type="ArrayMesh" id=2]
+
+[node name="Cloud" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.46
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

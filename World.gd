@@ -3,8 +3,14 @@ extends Spatial
 onready var Wolf = preload("res://Wolf.tscn")
 onready var Obj = preload("res://PickableObj.tscn")
 onready var lampObj = preload("res://Lamp.tscn")
+onready var Cloud = preload("res://Cloud.tscn")
 
 onready var Player = get_node("Player")
+
+var cloudsObjects = [load("res://assets/Low poly clouds/Cloud_1.obj"),
+				load("res://assets/Low poly clouds/Cloud_2.obj"),
+				 load("res://assets/Low poly clouds/Cloud_3.obj"),
+				  load("res://assets/Low poly clouds/Cloud_4.obj")]
 
 var pos = Vector3()
 
@@ -17,9 +23,24 @@ func _ready():
 		pos = Vector3(randf()*202-101, 0, randf()*202-101)
 		newobj.set_position(pos)
 		add_child(newobj)
+		
+	for i in range(0,100):
+		var cloud = Cloud.instance()
+		cloud.setObject(cloudsObjects[randi()%4])
+		cloud.setPosition(randi()%1000-500,100,randi()%1000-500)
+		cloud.connect("cloudFreed",self,"addNewCloud")
+		add_child(cloud)
+	
+func addNewCloud():
+	var cloud = Cloud.instance()
+	cloud.setObject(cloudsObjects[randi()%4])
+	cloud.setPosition(450,40,randi()%1000-500)
+	add_child(cloud)
+
 	
 #	for i in range(0,15):
 #		var newobj = lampObj.instance()
 #		pos = Vector3(randf()*202-101, -2, randf()*202-101)
 #		newobj.setup("Lamp", Player, pos, lamp)
 #		add_child(newobj)
+
