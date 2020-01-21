@@ -15,6 +15,7 @@ margin_bottom = -0.73938
 script = ExtResource( 1 )
 
 [node name="BG_Animation" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Menu_Camera" type="Camera" parent="BG_Animation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033226, -0.00802994, -0.00143182 )
@@ -32,6 +33,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6202, -1.54237, -7.51135 )
 autoplay = false
 
 [node name="Start_Menu" type="Panel" parent="."]
+editor/display_folded = true
 anchor_bottom = 1.0
 margin_left = 101.36
 margin_top = 1.36037
@@ -71,6 +73,7 @@ margin_bottom = 366.033
 text = "Settings"
 
 [node name="SettingsPanel" type="PopupPanel" parent="."]
+editor/display_folded = true
 margin_left = 537.615
 margin_top = 36.4237
 margin_right = 1010.61

@@ -1,0 +1,32 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Armature.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Armature001.tscn" type="PackedScene" id=2]
+[ext_resource path="res://BulletEmitter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/null1.anim" type="Animation" id=4]
+[ext_resource path="res://assets/reload.anim" type="Animation" id=5]
+[ext_resource path="res://assets/shooting.anim" type="Animation" id=6]
+[ext_resource path="res://assets/walkin.anim" type="Animation" id=7]
+[ext_resource path="res://assets/walkin2.anim" type="Animation" id=8]
+
+[node name="Arms" type="Spatial"]
+
+[node name="Armature" parent="." instance=ExtResource( 1 )]
+
+[node name="Armature001" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.0535307, -0.000637098, -0.000316818, 0.000316168, 5.65087e-05, -0.0535344, 0.000637421, -0.0535316, -5.27402e-05, 0, 1.62068, -0.198057 )
+
+[node name="BulletEmitter" parent="Armature001/Skeleton" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 3.91155e-08, 1.27511e-09, -3.91155e-08, 1, 5.82077e-10, 3.30601e-09, 3.49246e-10, 1, 2.36741, -38.1626, 0.813456 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "walkin"
+anims/null1 = ExtResource( 4 )
+anims/reload = ExtResource( 5 )
+anims/shooting = ExtResource( 6 )
+anims/walkin = ExtResource( 7 )
+anims/walkin2 = ExtResource( 8 )
+
+[editable path="Armature"]
+
+[editable path="Armature001"]

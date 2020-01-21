@@ -13,7 +13,7 @@ var camera_x_rotation = 0
 onready var headX = $HeadX
 onready var camera = $HeadX/HeadY/Camera
 onready var headY = $HeadX/HeadY
-onready var animationPlayer = $HeadX/HeadY/Weapon/Hands/AnimationPlayer
+onready var animationPlayer = $HeadX/HeadY/Arms/AnimationPlayer
 
 onready var TP = $TP
 onready var cameraTP = $TP/CameraTP
@@ -48,7 +48,7 @@ func _input(event):
 	
 	if event.is_action_pressed("shot"):
 		animationPlayer.play("shooting")
-		get_node("HeadX/HeadY/Weapon/Hands/Armature001/Skeleton/BulletEmitter").emit_bullet()
+		get_node("HeadX/HeadY/Arms/Armature001/Skeleton/BulletEmitter").emit_bullet()
 
 	
 
