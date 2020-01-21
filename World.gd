@@ -24,23 +24,23 @@ func _ready():
 		newobj.set_position(pos)
 		add_child(newobj)
 		
-	for i in range(0,100):
+	for i in range(0,50):
 		var cloud = Cloud.instance()
 		cloud.setObject(cloudsObjects[randi()%4])
 		cloud.setPosition(randi()%1000-500,100,randi()%1000-500)
 		cloud.connect("cloudFreed",self,"addNewCloud")
 		add_child(cloud)
-	
-func addNewCloud():
-	var cloud = Cloud.instance()
-	cloud.setObject(cloudsObjects[randi()%4])
-	cloud.setPosition(450,100,randi()%1000-500)
-	add_child(cloud)
 
-	
 #	for i in range(0,15):
 #		var newobj = lampObj.instance()
 #		pos = Vector3(randf()*202-101, -2, randf()*202-101)
 #		newobj.setup("Lamp", Player, pos, lamp)
 #		add_child(newobj)
+	
+	
 
+func addNewCloud():
+	var cloud = Cloud.instance()
+	cloud.setObject(cloudsObjects[randi()%4])
+	cloud.setPosition(450,100,randi()%1000-500)
+	add_child(cloud)

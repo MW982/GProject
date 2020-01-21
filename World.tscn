@@ -104,6 +104,7 @@ shape = SubResource( 4 )
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 
 [node name="CentralPark" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Campfire" parent="CentralPark" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61006, -2.29097, -17.5128 )
