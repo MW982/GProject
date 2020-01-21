@@ -1,15 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_resource type="ArrayMesh" load_steps=6 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://Hands.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Material_010.material" type="Material" id=3]
-[ext_resource path="res://assets/Material_008.material" type="Material" id=4]
-[ext_resource path="res://assets/Material_009.material" type="Material" id=5]
-[ext_resource path="res://assets/Material_007.material" type="Material" id=6]
-[ext_resource path="res://assets/Material_006.material" type="Material" id=7]
-[ext_resource path="res://BulletEmitter.gd" type="Script" id=8]
+[ext_resource path="res://assets/Material_010.material" type="Material" id=1]
+[ext_resource path="res://assets/Material_008.material" type="Material" id=2]
+[ext_resource path="res://assets/Material_009.material" type="Material" id=3]
+[ext_resource path="res://assets/Material_007.material" type="Material" id=4]
+[ext_resource path="res://assets/Material_006.material" type="Material" id=5]
 
-[sub_resource type="ArrayMesh" id=1]
+[resource]
 resource_name = "Cube.007"
 surfaces/0 = {
 "aabb": AABB( -0.239304, -0.529908, -0.85251, 0.478619, 2.9831, 3.30749 ),
@@ -18,7 +15,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97731,
 "index_count": 3906,
-"material": ExtResource( 3 ),
+"material": ExtResource( 1 ),
 "name": "Material.010",
 "primitive": 4,
 "skeleton_aabb": [ AABB( -0.239304, -0.529908, -0.85251, 0.478619, 2.9831, 3.30749 ) ],
@@ -31,7 +28,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 97731,
 "index_count": 420,
-"material": ExtResource( 4 ),
+"material": ExtResource( 2 ),
 "name": "Material.008",
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.291639, -0.579635, -0.356263, 0.583288, 1.30835, 0.823227 ) ],
@@ -44,7 +41,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 97731,
 "index_count": 4194,
-"material": ExtResource( 5 ),
+"material": ExtResource( 3 ),
 "name": "Material.009",
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.278137, 1.28562, -0.974419, 0.556274, 1.55084, 3.38481 ) ],
@@ -57,7 +54,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 97731,
 "index_count": 900,
-"material": ExtResource( 6 ),
+"material": ExtResource( 4 ),
 "name": "Material.007",
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.086655, 1.23884, 0.576524, 0.17332, 0.255028, 0.340619 ) ],
@@ -70,74 +67,9 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 97731,
 "index_count": 72,
-"material": ExtResource( 7 ),
+"material": ExtResource( 5 ),
 "name": "Material.006",
 "primitive": 4,
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( -0.11811, 2.42714, 2.09686, 0.249211, 0.32876, 0.332749 ) ],
 "vertex_count": 42
 }
-
-[sub_resource type="CapsuleShape" id=2]
-radius = 1.9
-height = 0.01
-
-[sub_resource type="CapsuleMesh" id=3]
-radius = 0.8
-mid_height = 1.29
-
-[node name="Player" type="KinematicBody"]
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 1 )
-
-[node name="HeadX" type="Spatial" parent="."]
-
-[node name="HeadY" type="Spatial" parent="HeadX"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-
-[node name="Camera" type="Camera" parent="HeadX/HeadY"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.58389 )
-current = true
-far = 1000.0
-
-[node name="Weapon" type="Spatial" parent="HeadX/HeadY"]
-transform = Transform( -1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0.239998, -0.33925, -1.19072 )
-
-[node name="Hands" parent="HeadX/HeadY/Weapon" instance=ExtResource( 2 )]
-transform = Transform( 2, -5.0822e-21, 3.49691e-07, -3.49691e-07, -8.74228e-08, 2, 1.52855e-14, -2, -8.74228e-08, 0.239998, -0.734745, 2.87783 )
-
-[node name="Armature001" parent="HeadX/HeadY/Weapon/Hands" index="1"]
-transform = Transform( -0.0535307, -0.000637098, -0.000316818, 0.000316168, 5.65087e-05, -0.0535344, 0.000637421, -0.0535316, -5.27402e-05, 0, 1.62068, -0.198057 )
-
-[node name="pistol" parent="HeadX/HeadY/Weapon/Hands/Armature001/Skeleton" index="0"]
-mesh = SubResource( 1 )
-
-[node name="BulletEmitter" type="Spatial" parent="HeadX/HeadY/Weapon/Hands/Armature001/Skeleton" index="1"]
-transform = Transform( 1, -4.65661e-09, 2.7012e-10, -3.72529e-09, 1, 0, 1.90539e-09, 1.74623e-09, 1, 2.7745, -23.939, 0.937407 )
-script = ExtResource( 8 )
-
-[node name="Camera" parent="HeadX/HeadY/Weapon/Hands" index="2"]
-visible = false
-
-[node name="AnimationPlayer" parent="HeadX/HeadY/Weapon/Hands" index="3"]
-autoplay = "walkin"
-
-[node name="RayCast" type="RayCast" parent="HeadX/HeadY/Weapon"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0313981, 0.930699, -0.262282 )
-enabled = true
-cast_to = Vector3( 0, 2, 0 )
-collide_with_areas = true
-
-[node name="Inventory" type="Node" parent="."]
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.288942, -0.348881 )
-visible = false
-shape = SubResource( 2 )
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -8.50558e-05, 0.000566244, 0.00243402 )
-mesh = SubResource( 3 )
-material/0 = null
-
-[editable path="HeadX/HeadY/Weapon/Hands"]
