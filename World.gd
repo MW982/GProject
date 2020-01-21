@@ -34,7 +34,7 @@ func _ready():
 func addNewCloud():
 	var cloud = Cloud.instance()
 	cloud.setObject(cloudsObjects[randi()%4])
-	cloud.setPosition(450,40,randi()%1000-500)
+	cloud.setPosition(450,100,randi()%1000-500)
 	add_child(cloud)
 
 	
