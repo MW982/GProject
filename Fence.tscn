@@ -2561,6 +2561,7 @@ surfaces/194 = {
 extents = Vector3( 1.16451, 4.96918, 6.10632 )
 
 [node name="Fence" type="Spatial"]
+transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 5 )
