@@ -27,13 +27,14 @@ func _physics_process(delta):
 	velocity.y -= gravity
 	velocity = move_and_slide(velocity, Vector3.UP)
 
+
 func aim(delta):
 	var t = get_transform()
 	var rotTransform = t.looking_at(get_transform().origin+dir, Vector3.UP)
 	var thisRotation = (Quat(rotTransform.basis).slerp(rotTransform.basis, 3*delta))
 	set_transform(Transform(thisRotation, t.origin))
-	
-	
+
+
 func _on_LookForPlayer_timeout():
 	var player_pos = player.get("translation")
 	var direction = player_pos - translation 
@@ -52,4 +53,5 @@ func damage(dmg):
 	health -= dmg
 	speed += 5
 	if health <= 0:
+		emit_signal("killed")
 		queue_free()

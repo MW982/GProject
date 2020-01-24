@@ -7,7 +7,7 @@ export var item_icon = "res://assets/lamp.png"
 onready var prompt = get_node("Prompt/Label")
 onready var sbody = get_node("../MeshInstance/StaticBody")
 onready var player = get_node("/root/World/Player/")
-onready var player_hand = get_node("/root/World/Player/HeadX/HeadY/Weapon/RayCast")
+onready var player_hand = get_node("/root/World/Player/HeadX/HeadY/Arms/RayCast")
 
 var obj
 

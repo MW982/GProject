@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/red.material" type="Material" id=5]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 1, 0.697805, 1.68718 )
+extents = Vector3( 2.04, 1.328, 3.267 )
 
 [sub_resource type="ArrayMesh" id=2]
 surfaces/0 = {

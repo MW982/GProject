@@ -61,6 +61,7 @@ script = ExtResource( 1 )
 
 [node name="DebugLight" type="OmniLight" parent="."]
 transform = Transform( -0.966256, 0.167999, -0.195257, -0.257402, -0.601366, 0.756375, 0.00964996, 0.781112, 0.624317, 27.5628, 59.2765, 25.2888 )
+visible = false
 omni_range = 4071.0
 
 [node name="Skybox" type="WorldEnvironment" parent="."]
