@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
-[ext_resource path="res://Environment.tres" type="Environment" id=2]
-[ext_resource path="res://Campfire.tscn" type="PackedScene" id=3]
-[ext_resource path="res://OptionButton.gd" type="Script" id=4]
-[ext_resource path="res://MasterAudio.gd" type="Script" id=5]
-[ext_resource path="res://Fullscreen.gd" type="Script" id=6]
-[ext_resource path="res://Music.gd" type="Script" id=7]
-[ext_resource path="res://Borderless.gd" type="Script" id=8]
-[ext_resource path="res://Sounds.gd" type="Script" id=9]
+[ext_resource path="res://BG_Animation.gd" type="Script" id=2]
+[ext_resource path="res://Environment.tres" type="Environment" id=3]
+[ext_resource path="res://Campfire.tscn" type="PackedScene" id=4]
+[ext_resource path="res://OptionButton.gd" type="Script" id=5]
+[ext_resource path="res://MasterAudio.gd" type="Script" id=6]
+[ext_resource path="res://Fullscreen.gd" type="Script" id=7]
+[ext_resource path="res://Music.gd" type="Script" id=8]
+[ext_resource path="res://Borderless.gd" type="Script" id=9]
+[ext_resource path="res://Sounds.gd" type="Script" id=10]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -18,6 +19,7 @@ margin_bottom = -0.73938
 script = ExtResource( 1 )
 
 [node name="BG_Animation" type="Spatial" parent="."]
+script = ExtResource( 2 )
 
 [node name="Menu_Camera" type="Camera" parent="BG_Animation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033226, -0.00802994, -0.00143182 )
@@ -25,9 +27,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033226, -0.00802994, -0.00
 [node name="Animation_Player" type="AnimationPlayer" parent="BG_Animation"]
 
 [node name="Skybox" type="WorldEnvironment" parent="BG_Animation"]
-environment = ExtResource( 2 )
+environment = ExtResource( 3 )
 
-[node name="Campfire" parent="BG_Animation" instance=ExtResource( 3 )]
+[node name="Campfire" parent="BG_Animation" instance=ExtResource( 4 )]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6202, -1.54237, -7.51135 )
 
@@ -98,7 +100,7 @@ margin_right = 97.0
 margin_bottom = 20.0
 text = "Item 0"
 align = 1
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Master" type="HSlider" parent="SettingsPanel/GridContainer"]
 margin_left = 147.0
@@ -107,15 +109,14 @@ margin_bottom = 16.0
 min_value = -25.0
 max_value = 25.0
 step = 5.0
-ticks_on_borders = false
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="Fullscreen" type="CheckBox" parent="SettingsPanel/GridContainer"]
 margin_top = 40.0
 margin_right = 97.0
 margin_bottom = 64.0
 text = "Fullscreen"
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Music" type="HSlider" parent="SettingsPanel/GridContainer"]
 margin_left = 147.0
@@ -126,14 +127,14 @@ min_value = -25.0
 max_value = 25.0
 step = 5.0
 ticks_on_borders = true
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Borderless" type="CheckBox" parent="SettingsPanel/GridContainer"]
 margin_top = 84.0
 margin_right = 97.0
 margin_bottom = 108.0
 text = "Borderless"
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="Sound" type="HSlider" parent="SettingsPanel/GridContainer"]
 margin_left = 147.0
@@ -144,8 +145,7 @@ rect_min_size = Vector2( 50, 0 )
 min_value = -25.0
 max_value = 25.0
 step = 5.0
-ticks_on_borders = false
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 [connection signal="item_selected" from="SettingsPanel/GridContainer/OptionButton" to="SettingsPanel/GridContainer/OptionButton" method="_on_OptionButton_item_selected"]
 [connection signal="value_changed" from="SettingsPanel/GridContainer/Master" to="SettingsPanel/GridContainer/Master" method="_on_MasterAudio_value_changed"]
 [connection signal="toggled" from="SettingsPanel/GridContainer/Fullscreen" to="SettingsPanel/GridContainer/Fullscreen" method="_on_CheckBox_toggled"]
