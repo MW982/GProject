@@ -11,7 +11,12 @@ func start_menu_pressed(button_name):
 		print("Start Game!")
 		get_tree().change_scene("res://World.tscn")
 	elif button_name == "settings":
-		print("Settings")
-		$SettingsPanel.popup()
+		if $SettingsPanel.is_visible():
+			$SettingsPanel.visible = false
+		else:
+			print("Settings")
+			$SettingsPanel.visible = true
+		
+	
 	elif button_name == "quit":
 		get_tree().quit()
