@@ -22,7 +22,8 @@ onready var Weapon = $Weapon
 
 var positionStatus = 1 # 1 - standing
 					   # 2 - crouching
-					   # 3 - running
+					   # 3 - crawling
+onready var armsTranslation = $HeadX/HeadY/Arms.translation
 
 var inventory = []
 
@@ -31,12 +32,41 @@ func _ready():
 	var gui = get_node("../GUI");
 	gui.updateInventory(inventory);
 
+func handlePositionChange(input):
+	print("position status change!")
+	if positionStatus == 1 && input.is_key_pressed(KEY_C):
+		positionStatus = 2
+		return
+	elif positionStatus == 1 && input.is_key_pressed(KEY_X):
+		positionStatus = 3
+		return
+		
+	if positionStatus == 2 && (input.is_key_pressed(KEY_C) || input.is_key_pressed(KEY_SPACE)):
+		positionStatus = 1
+		return
+	elif positionStatus == 2 && input.is_key_pressed(KEY_X):
+		positionStatus = 3
+		return
+		
+	if positionStatus == 3 && input.is_key_pressed(KEY_X):
+		positionStatus = 1
+		return
+	elif positionStatus == 3 && input.is_key_pressed(KEY_SPACE):
+		positionStatus = 1
+		return
+	elif positionStatus == 3 && input.is_key_pressed(KEY_C):
+		positionStatus = 2
+		return
+	
 
 func _input(event):
 #	if event.is_action_pressed("camera"): #za ustawienie C na kamere powinno być 10 lat łagru
 #		camera.set_current(not camera.current)
 #		print("Change view FP: %s, TP: %s" % [camera.current, cameraTP.current])
-		
+	print(positionStatus)
+	if Input.is_key_pressed(KEY_SPACE) || Input.is_key_pressed(KEY_C) || Input.is_key_pressed(KEY_X):
+		handlePositionChange(Input)
+
 	if event is InputEventMouseMotion:
 		if camera.is_current():
 			headX.rotate_y(deg2rad(-event.relative.x*mouse_sensitivity))
@@ -64,6 +94,22 @@ func _physics_process(delta):
 	var direction = Vector3()
 	var head_basis = headX.get_global_transform().basis
 	
+	
+	print(armsTranslation)
+	match(positionStatus):
+		1:
+			$CollisionShape.scale = Vector3(1,1,1)
+			$HeadX/HeadY/Camera.translation = Vector3(0,0,-0.584)
+			$HeadX/HeadY/Arms.translation = armsTranslation
+		2:
+			$CollisionShape.scale = Vector3(1.15,1.15,0.66)
+			$HeadX/HeadY/Camera.translation = Vector3(0,0,-0.419)
+			$HeadX/HeadY/Arms.translation = armsTranslation - Vector3(0,0,-0.584+0.419)
+		3:
+			$CollisionShape.scale = Vector3(3,1.5,0.5)
+			$HeadX/HeadY/Camera.translation = Vector3(0,-0.427,-1.075)
+			$HeadX/HeadY/Arms.translation = armsTranslation - Vector3(0,0.427,1.075-0.419)
+	
 	if Input.is_action_pressed("move_f"):
 		direction -= head_basis.z
 		if not animationPlayer.is_playing():
@@ -84,7 +130,7 @@ func _physics_process(delta):
 		if not animationPlayer.is_playing():
 			animationPlayer.play("walkin")
 		
-	if Input.is_action_just_pressed("jump"): #and is_on_floor()
+	if Input.is_action_just_pressed("jump") && (positionStatus == 1): #and is_on_floor()
 		velocity.y += jump_power 
 		
 	direction = direction.normalized()
