@@ -69,7 +69,7 @@ environment = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.03466, -10.6331 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 85.0773, 7.10753, -10.6331 )
 
 [node name="Armature001" parent="Player/HeadX/HeadY/Arms" index="1"]
 editor/display_folded = true

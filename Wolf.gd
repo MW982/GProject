@@ -11,6 +11,8 @@ onready var player = get_node("/root/World/Player/")
 var velocity = Vector3()
 var dir
 
+var canAttack = true
+
 
 func _ready():
 	dir = Vector3(1,0,0)
@@ -42,7 +44,9 @@ func _on_LookForPlayer_timeout():
 	if distance < 20:
 		dir = direction
 		dir.y = 0
-#		player.damage(damage)
+		if canAttack:
+			player.damage(damage)
+			canAttack = false
 
 
 func _on_ChangeDirection_timeout():
@@ -55,3 +59,6 @@ func damage(dmg):
 	if health <= 0:
 		emit_signal("killed")
 		queue_free()
+
+func _on_AttackTimer_timeout(): #enemy can attack once per 1 second
+	canAttack = true

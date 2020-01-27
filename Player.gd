@@ -1,6 +1,7 @@
 extends KinematicBody
 
 export var health = 100
+
 export var speed = 60
 export var velocity = Vector3()
 export var acceleration = 7
@@ -31,9 +32,10 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var gui = get_node("../GUI");
 	gui.updateInventory(inventory);
+	get_node("../GUI/HealthBar")._on_max_health_updated(100)
+	
 
 func handlePositionChange(input):
-	print("position status change!")
 	if positionStatus == 1 && input.is_key_pressed(KEY_C):
 		positionStatus = 2
 		return
@@ -63,7 +65,7 @@ func _input(event):
 #	if event.is_action_pressed("camera"): #za ustawienie C na kamere powinno być 10 lat łagru
 #		camera.set_current(not camera.current)
 #		print("Change view FP: %s, TP: %s" % [camera.current, cameraTP.current])
-	print(positionStatus)
+	
 	if Input.is_key_pressed(KEY_SPACE) || Input.is_key_pressed(KEY_C) || Input.is_key_pressed(KEY_X):
 		handlePositionChange(Input)
 
@@ -94,8 +96,6 @@ func _physics_process(delta):
 	var direction = Vector3()
 	var head_basis = headX.get_global_transform().basis
 	
-	
-	print(armsTranslation)
 	match(positionStatus):
 		1:
 			$CollisionShape.scale = Vector3(1,1,1)
@@ -165,10 +165,12 @@ func update_inventory(body):
 
 
 func damage(dmg):
+	var health_bar = get_node("../GUI/HealthBar")
 	health -= dmg
+	health_bar._on_health_updated(health)
 	if health <= 0:
 		print("end")
-		queue_free()
+		#queue_free()
 
 
 func heal(hp):
