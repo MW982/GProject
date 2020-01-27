@@ -300,7 +300,7 @@ light_specular = 0.47
 shadow_enabled = true
 
 [node name="GIProbe" type="GIProbe" parent="."]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10.1858, 6.79152, -7.52614 )
+transform = Transform( -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0, 1, 10.1858, 6.79152, -7.52614 )
 visible = false
 extents = Vector3( 22.3762, 223.643, 196.09 )
 energy = 2.05

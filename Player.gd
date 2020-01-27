@@ -20,6 +20,9 @@ onready var cameraTP = $TP/CameraTP
 
 onready var Weapon = $Weapon
 
+var positionStatus = 1 # 1 - standing
+					   # 2 - crouching
+					   # 3 - running
 
 var inventory = []
 
@@ -30,10 +33,10 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("camera"):
-		camera.set_current(not camera.current)
-		print("Change view FP: %s, TP: %s" % [camera.current, cameraTP.current])
-	
+#	if event.is_action_pressed("camera"): #za ustawienie C na kamere powinno być 10 lat łagru
+#		camera.set_current(not camera.current)
+#		print("Change view FP: %s, TP: %s" % [camera.current, cameraTP.current])
+		
 	if event is InputEventMouseMotion:
 		if camera.is_current():
 			headX.rotate_y(deg2rad(-event.relative.x*mouse_sensitivity))
@@ -65,6 +68,7 @@ func _physics_process(delta):
 		direction -= head_basis.z
 		if not animationPlayer.is_playing():
 			animationPlayer.play("walkin")
+		
 	elif Input.is_action_pressed("move_b"):
 		direction += head_basis.z
 		if not animationPlayer.is_playing():
@@ -75,7 +79,6 @@ func _physics_process(delta):
 		if not animationPlayer.is_playing():
 			animationPlayer.play("walkin")
 
-			
 	elif Input.is_action_pressed("move_l"):
 		direction -= head_basis.x
 		if not animationPlayer.is_playing():
@@ -86,10 +89,14 @@ func _physics_process(delta):
 		
 	direction = direction.normalized()
 	
-	velocity = velocity.linear_interpolate(direction*speed, acceleration*delta)
+	if Input.is_key_pressed(KEY_SHIFT) && Input.is_action_pressed("move_f"):
+		velocity = velocity.linear_interpolate(direction*speed*2, acceleration*delta) #running only forward
+	else:
+		velocity = velocity.linear_interpolate(direction*speed, acceleration*delta)
+	
 	velocity.y -= gravity
 	velocity = move_and_slide(velocity, Vector3.UP)
-
+	
 
 func update_inventory(body):
 	var inventoryLenght = inventory.size()
@@ -103,6 +110,8 @@ func update_inventory(body):
 		if inventory[i].name == body.items_name:
 			print("item already in inventory!")
 		else:
+			if inventory.size() >= 9:
+				return
 			inventory.append(body.duplicate())
 			var gui = get_node("../GUI")
 			gui.updateInventory(inventory)

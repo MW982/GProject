@@ -5,6 +5,8 @@ var chosenItemSlot = 1
 
 func updateInventory(inventory):
 	print(inventory)
+	if inventory.size() >= 9:
+		return
 #	for item in inventory:
 #		print(item)
 #		#if !item.has("item_icon"):

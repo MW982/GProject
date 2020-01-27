@@ -109,6 +109,7 @@ margin_bottom = 16.0
 min_value = -25.0
 max_value = 25.0
 step = 5.0
+ticks_on_borders = true
 script = ExtResource( 6 )
 
 [node name="Fullscreen" type="CheckBox" parent="SettingsPanel/GridContainer"]
