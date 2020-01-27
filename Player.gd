@@ -19,6 +19,8 @@ onready var animationPlayer = $HeadX/HeadY/Arms/AnimationPlayer
 onready var TP = $TP
 onready var cameraTP = $TP/CameraTP
 
+onready var health_bar = get_node("../GUI/HealthBar")
+
 onready var Weapon = $Weapon
 
 var positionStatus = 1 # 1 - standing
@@ -165,7 +167,6 @@ func update_inventory(body):
 
 
 func damage(dmg):
-	var health_bar = get_node("../GUI/HealthBar")
 	health -= dmg
 	health_bar._on_health_updated(health)
 	if health <= 0:
@@ -177,3 +178,4 @@ func heal(hp):
 	health += hp
 	if health > 100:
 		health = 100
+	health_bar._on_health_updated(health)
