@@ -2,7 +2,7 @@ extends Spatial
 
 #onready var pObj = preload("res://PickableObj.tscn")
 #onready var Player = get_node("/root/World/Player")
-
+var asset_ = "res://assets/lamp.png"
 
 func setup(name_, player_, pos_, asset_):
 	translation = pos_
@@ -10,6 +10,7 @@ func setup(name_, player_, pos_, asset_):
 	pObj.connect("item", player_, "update_inventory")
 	pObj.connect("item", self, "clear")
 	pObj.setup(name_, Vector3(), asset_)
+
 
 func clear(items_name):
 	queue_free()

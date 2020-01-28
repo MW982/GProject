@@ -15,9 +15,11 @@ func updateInventory(inventory):
 #		itemList.add_item("",icon,true)
 #
 	var inventoryLenght = inventory.size()
+	print(inventoryLenght)
 	if inventoryLenght==0:
 		return
-	var icon = ResourceLoader.load(inventory[inventoryLenght-1].item_icon)
+	
+	var icon = ResourceLoader.load(inventory[inventoryLenght-1].asset_path)
 	itemList.add_item("",icon,true)
 
 func _ready():
@@ -26,6 +28,7 @@ func _ready():
 	itemList.set_icon_mode(ItemList.ICON_MODE_TOP)
 	itemList.set_select_mode(ItemList.SELECT_SINGLE)
 	itemList.set_same_column_width(true)
+	itemList.select(chosenItemSlot,true)
 	
 func _input(event):
 	for i in range(49,58):

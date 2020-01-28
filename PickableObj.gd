@@ -1,8 +1,8 @@
 extends Spatial
 
 export var items_name = "Base Item"
-export var asset_path = ""
-export var item_icon = "res://assets/lamp.png"
+var asset_path = "res://assets/lamp.png"
+#export var item_icon = "res://assets/lamp.png"
 
 onready var prompt = get_node("Prompt/Label")
 onready var sbody = get_node("../MeshInstance/StaticBody")
@@ -14,8 +14,9 @@ var obj
 signal item(items_name)
 
 
-func setup(items_name_, pos_, asset_=asset_path):
+func setup(items_name_, pos_, asset_):
 	items_name = items_name_
+	asset_path = asset_
 	set_position(pos_)
 
 

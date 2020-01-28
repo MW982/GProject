@@ -31,11 +31,11 @@ func _ready():
 		cloud.connect("cloudFreed",self,"addNewCloud")
 		add_child(cloud)
 
-#	for i in range(0,15):
-#		var newobj = lampObj.instance()
-#		pos = Vector3(randf()*10, -2, randf()*10)
-#		newobj.setup("Lamp", Player, pos, lamp)
-#		add_child(newobj)
+	for i in range(0,15):
+		var newobj = lampObj.instance()
+		pos = Vector3(randf()*10, -2, randf()*10)
+		newobj.setup("Lamp", Player, pos, lamp)
+		add_child(newobj)
 	
 	
 
