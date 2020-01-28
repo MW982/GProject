@@ -8,6 +8,7 @@ export var acceleration = 10
 export var damage = 10
 
 onready var player = get_node("/root/World/Player/")
+onready var health_bar = $HealthBar3D
 var velocity = Vector3()
 var dir
 
@@ -56,6 +57,7 @@ func _on_ChangeDirection_timeout():
 func damage(dmg):
 	health -= dmg
 	speed += 5
+	health_bar.update(health)
 	if health <= 0:
 		emit_signal("killed")
 		queue_free()
