@@ -3,18 +3,18 @@
 [ext_resource path="res://assets/glock.tres" type="ArrayMesh" id=1]
 
 [node name="Armature001" type="Spatial"]
-transform = Transform( -0.0535307, -0.000637094, -0.000316818, 0.000316168, 5.65022e-005, -0.0535344, 0.000637417, -0.0535316, -5.27346e-005, 0, 1.62068, -0.198057 )
+transform = Transform( -0.0535307, -0.000637094, -0.000316818, 0.000316168, 5.65022e-05, -0.0535344, 0.000637417, -0.0535316, -5.27346e-05, 0, 1.62068, -0.198057 )
 
 [node name="Skeleton" type="Skeleton" parent="."]
 bones_in_world_transform = true
 bones/0/name = "mag"
 bones/0/parent = -1
-bones/0/rest = Transform( 0.993362, -0.114996, 0.00277276, 0.0439008, 0.356725, -0.933177, 0.106323, 0.927105, 0.359405, 8.9407e-008, -0.428134, 0.0808239 )
+bones/0/rest = Transform( 0.993362, -0.114996, 0.00277276, 0.0439008, 0.356725, -0.933177, 0.106323, 0.927105, 0.359405, 8.9407e-08, -0.428134, 0.0808239 )
 bones/0/enabled = true
 bones/0/bound_children = [  ]
 bones/1/name = "weapon"
 bones/1/parent = -1
-bones/1/rest = Transform( 0.999389, 0.0344607, 0.00576744, 0.00581958, -0.00141304, -0.999982, -0.0344519, 0.999405, -0.00161261, -1.49012e-008, -9.53674e-007, 3.8147e-006 )
+bones/1/rest = Transform( 0.999389, 0.0344607, 0.00576744, 0.00581958, -0.00141304, -0.999982, -0.0344519, 0.999405, -0.00161261, -1.49012e-08, -9.53674e-07, 3.8147e-06 )
 bones/1/enabled = true
 bones/1/bound_children = [  ]
 bones/2/name = "slide"
