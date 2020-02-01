@@ -4,25 +4,20 @@
 [ext_resource path="res://assets/healthbar.png" type="Texture" id=2]
 
 [node name="HealthBar" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = 0.215942
+margin_right = 1024.0
+margin_bottom = 600.216
 script = ExtResource( 1 )
 
 [node name="HealthUnder" type="TextureProgress" parent="."]
-margin_left = 10.9565
-margin_top = 13.358
-margin_right = 455.956
-margin_bottom = 64.358
+margin_right = 445.0
+margin_bottom = 51.0
 value = 100.0
 texture_progress = ExtResource( 2 )
 tint_progress = Color( 0.952941, 0.0431373, 0.0431373, 1 )
 
 [node name="HealthOver" type="TextureProgress" parent="."]
-margin_left = 10.5581
-margin_top = 12.8335
-margin_right = 455.558
-margin_bottom = 63.8335
+margin_right = 445.0
+margin_bottom = 51.0
 value = 100.0
 texture_progress = ExtResource( 2 )
 tint_progress = Color( 0.101961, 1, 0, 1 )
