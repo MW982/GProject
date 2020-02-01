@@ -28,6 +28,7 @@ var current_grenade = "Grenade"
 var grenade_scene = preload("res://Grenade.tscn")
 const GRENADE_THROW_FORCE = 50
 var canThrowGrenade = true
+var canGunShot = true
 
 var positionStatus = 1 # 1 - standing
 					   # 2 - crouching
@@ -89,9 +90,11 @@ func _input(event):
 			if Input.is_mouse_button_pressed(BUTTON_MIDDLE):
 				TP.rotate_x(event.relative.x*mouse_sensitivity)
 	
-	if event.is_action_pressed("shot"):
+	if event.is_action_pressed("shot") and canGunShot:
 		animationPlayer.play("shooting")
+		$Shot.play()
 		get_node("HeadX/HeadY/Arms/Armature001/Skeleton/BulletEmitter").emit_bullet()
+		canGunShot = false
 
 	
 
@@ -188,6 +191,7 @@ func update_inventory(body):
 
 func damage(dmg):
 	health -= dmg
+	$Damage.play()
 	health_bar._on_health_updated(health)
 	if health <= 0:
 		print("end")
@@ -202,3 +206,7 @@ func heal(hp):
 
 func _on_Timer_timeout():
 	canThrowGrenade = true
+
+func _on_GunShot_Timer_timeout():
+	canGunShot = true
+

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Arms.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sounds/classic_hurt (online-audio-converter.com).wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sounds/gun_shot.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.8
@@ -48,7 +50,18 @@ shape = SubResource( 2 )
 [node name="Grenade Timer" type="Timer" parent="."]
 wait_time = 1.5
 autostart = true
+
+[node name="Damage" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Shot" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="GunShot Timer" type="Timer" parent="."]
+wait_time = 1.4
+autostart = true
 [connection signal="timeout" from="Grenade Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="GunShot Timer" to="." method="_on_GunShot_Timer_timeout"]
 
 [editable path="HeadX/HeadY/Arms"]
 

@@ -32,6 +32,7 @@ func _process(delta):
         return
     else:
         if explosion_wait_timer <= 0:
+            $AudioStreamPlayer3D.play()
             explosion_particles.emitting = true
             light.light_energy = 1
 
