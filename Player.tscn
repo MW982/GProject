@@ -45,6 +45,11 @@ material/0 = null
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0.0265933, 0 )
 shape = SubResource( 2 )
 
+[node name="Grenade Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+[connection signal="timeout" from="Grenade Timer" to="." method="_on_Timer_timeout"]
+
 [editable path="HeadX/HeadY/Arms"]
 
 [editable path="HeadX/HeadY/Arms/Armature001"]

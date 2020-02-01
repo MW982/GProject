@@ -23,6 +23,12 @@ onready var health_bar = get_node("../GUI/HealthBar")
 
 onready var Weapon = $Weapon
 
+var grenade_amounts = {"Grenade":50}
+var current_grenade = "Grenade"
+var grenade_scene = preload("res://Grenade.tscn")
+const GRENADE_THROW_FORCE = 50
+var canThrowGrenade = true
+
 var positionStatus = 1 # 1 - standing
 					   # 2 - crouching
 					   # 3 - crawling
@@ -145,6 +151,20 @@ func _physics_process(delta):
 	velocity.y -= gravity
 	velocity = move_and_slide(velocity, Vector3.UP)
 	
+	if Input.is_key_pressed(KEY_G) and canThrowGrenade:
+		if grenade_amounts[current_grenade] > 0:
+			grenade_amounts[current_grenade] -= 1
+	
+			var grenade_clone
+			if (current_grenade == "Grenade"):
+				grenade_clone = grenade_scene.instance()
+	
+			get_tree().root.add_child(grenade_clone)
+			print(grenade_clone)
+			grenade_clone.global_transform = $HeadX/HeadY.global_transform
+			grenade_clone.apply_impulse(Vector3(0,0,0), -grenade_clone.global_transform.basis.z * GRENADE_THROW_FORCE)
+			canThrowGrenade = false
+	
 
 func update_inventory(body):
 	var inventoryLenght = inventory.size()
@@ -179,3 +199,6 @@ func heal(hp):
 	if health > 100:
 		health = 100
 	health_bar._on_health_updated(health)
+
+func _on_Timer_timeout():
+	canThrowGrenade = true
