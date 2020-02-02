@@ -6,7 +6,7 @@ export var speed = 60
 export var velocity = Vector3()
 export var acceleration = 7
 export var gravity = 0.98
-export var jump_power = 30
+export var jump_power = 300
 export var mouse_sensitivity = 0.3
 
 var camera_x_rotation = 0
