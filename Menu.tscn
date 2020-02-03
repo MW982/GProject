@@ -38,7 +38,6 @@ autoplay = false
 bus = "Master"
 
 [node name="Start_Menu" type="Panel" parent="."]
-editor/display_folded = true
 anchor_bottom = 1.0
 margin_left = 101.36
 margin_top = 1.36037
