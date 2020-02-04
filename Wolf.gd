@@ -5,7 +5,7 @@ var gravity = 0.98
 export var health = 100
 export var speed = 10
 export var acceleration = 10
-export var damage = 10
+export var dmg = 10
 
 onready var player = get_node("/root/World/Player/")
 onready var health_bar = $HealthBar3D
@@ -46,7 +46,7 @@ func _on_LookForPlayer_timeout():
 		dir = direction
 		dir.y = 0
 		if canAttack:
-			player.damage(damage)
+			player.damage(dmg)
 			canAttack = false
 
 

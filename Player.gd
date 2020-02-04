@@ -16,12 +16,7 @@ onready var camera = $HeadX/HeadY/Camera
 onready var headY = $HeadX/HeadY
 onready var animationPlayer = $HeadX/HeadY/Arms/AnimationPlayer
 
-onready var TP = $TP
-onready var cameraTP = $TP/CameraTP
-
 onready var health_bar = get_node("../GUI/HealthBar")
-
-onready var Weapon = $Weapon
 
 var grenade_amounts = {"Grenade":50}
 var current_grenade = "Grenade"
@@ -86,9 +81,6 @@ func _input(event):
 			if camera_x_rotation + x_delta > -70 and camera_x_rotation + x_delta < 70: 
 				headY.rotate_x(deg2rad(-x_delta))
 				camera_x_rotation += x_delta
-		else:
-			if Input.is_mouse_button_pressed(BUTTON_MIDDLE):
-				TP.rotate_x(event.relative.x*mouse_sensitivity)
 	
 	if event.is_action_pressed("shot") and canGunShot:
 		animationPlayer.play("shooting")

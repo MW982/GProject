@@ -6,7 +6,6 @@ export var damage = 20
 export var KILL_TIME = 5
 
 var timer = 0
-var gravity = 0.98
 
 
 func _physics_process(delta):

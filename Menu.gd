@@ -16,7 +16,5 @@ func start_menu_pressed(button_name):
 		else:
 			print("Settings")
 			$SettingsPanel.visible = true
-		
-	
 	elif button_name == "quit":
 		get_tree().quit()

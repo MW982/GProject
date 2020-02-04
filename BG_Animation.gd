@@ -12,7 +12,7 @@ func _ready():
 		var cloud = Cloud.instance()
 		cloud.menuAnimationChoice(true)
 		cloud.setObject(cloudsObjects[randi()%4])
-		cloud.setPosition(randi()%(300+1-120)+120,randi()%(80+1-20)+20,-100)
+		cloud.setPosition(randi()%(300+1-120)+120,randi()%(80)+40,-100)
 		cloud.connect("cloudFreed",self,"addNewCloud")
 		add_child(cloud)
 
@@ -20,5 +20,5 @@ func addNewCloud():
 	var cloud = Cloud.instance()
 	cloud.menuAnimationChoice(true)
 	cloud.setObject(cloudsObjects[randi()%4])
-	cloud.setPosition(randi()%(300+1-120)+120,randi()%(80+1-20)+20,-100)
+	cloud.setPosition(randi()%(300+1-120)+120,randi()%(80)+60,-100)
 	add_child(cloud)
