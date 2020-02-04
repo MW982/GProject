@@ -18,11 +18,11 @@ func _ready():
 	var lamp = load("res://assets/lantern.obj")
 	var lion = load("res://assets/Lion.obj")
 	
-	for i in range(0,20):
-		var newobj = Wolf.instance()
-		pos = Vector3(randf()*202-101, 0, randf()*202-101)
-		newobj.set_position(pos)
-		add_child(newobj)
+#	for i in range(0,20):
+#		var newobj = Wolf.instance()
+#		pos = Vector3(randf()*202-101, 0, randf()*202-101)
+#		newobj.set_position(pos)
+#		add_child(newobj)
 		
 	for i in range(0,50):
 		var cloud = Cloud.instance()
