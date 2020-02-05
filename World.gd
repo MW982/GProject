@@ -15,7 +15,8 @@ var pos = Vector3()
 
 func _ready():
 	var lamp = load("res://assets/lantern.obj")
-		
+	Player.connect("end",self,"gameover")
+	
 	for i in range(0,30):
 		var cloud = Cloud.instance()
 		cloud.setObject(cloudsObjects[randi()%4])
@@ -23,12 +24,25 @@ func _ready():
 		cloud.connect("cloudFreed",self,"addNewCloud")
 		add_child(cloud)
 
-	for i in range(0,15):
-		var newobj = lampObj.instance()
-		pos = Vector3(randf()*10, -2, randf()*10)
-		newobj.setup("Lamp", Player, pos, lamp)
-		add_child(newobj)
+#	for i in range(0,15):
+#		var newobj = lampObj.instance()
+#		pos = Vector3(randf()*10, -2, randf()*10)
+#		newobj.setup("Lamp", Player, pos, lamp)
+#		add_child(newobj)
 	
+
+func save_score():
+	var file = File.new()
+	file.open("res://scoreboard.dat", File.READ_WRITE)
+	file.seek_end()
+	file.store_line("bolek1,10,20,390")
+	file.close()
+
+
+func gameover():
+	save_score()
+	get_tree().change_scene("res://Scoreboard.tscn")
+
 	
 func addNewCloud():
 	var cloud = Cloud.instance()

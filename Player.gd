@@ -32,6 +32,9 @@ onready var armsTranslation = $HeadX/HeadY/Arms.translation
 
 var inventory = []
 
+signal end
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	var gui = get_node("../GUI");
@@ -186,7 +189,8 @@ func damage(dmg):
 	$Damage.play()
 	health_bar._on_health_updated(health)
 	if health <= 0:
-		print("end")
+		emit_signal("end")
+		#get_tree().change_scene("res://Scoreboard.tscn")
 		#queue_free()
 
 

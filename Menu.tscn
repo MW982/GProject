@@ -66,25 +66,32 @@ align = 1
 valign = 1
 
 [node name="Button_Start" type="Button" parent="Start_Menu"]
-margin_left = 124.312
-margin_top = 222.188
-margin_right = 286.312
-margin_bottom = 284.188
+margin_left = 125.262
+margin_top = 194.638
+margin_right = 287.262
+margin_bottom = 256.638
 text = "Start"
 
 [node name="Button_Quit" type="Button" parent="Start_Menu"]
 margin_left = 126.664
-margin_top = 386.739
+margin_top = 420.939
 margin_right = 279.664
-margin_bottom = 473.739
+margin_bottom = 507.939
 text = "Quit"
 
 [node name="Button_Settings" type="Button" parent="Start_Menu"]
-margin_left = 123.299
-margin_top = 308.033
-margin_right = 285.299
-margin_bottom = 366.033
+margin_left = 124.249
+margin_top = 345.083
+margin_right = 286.249
+margin_bottom = 403.083
 text = "Settings"
+
+[node name="Button_Score" type="Button" parent="Start_Menu"]
+margin_left = 124.249
+margin_top = 270.983
+margin_right = 286.249
+margin_bottom = 328.983
+text = "Scoreboard"
 
 [node name="SettingsPanel" type="PopupPanel" parent="."]
 margin_left = 537.615

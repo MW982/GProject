@@ -69,6 +69,7 @@ script = ExtResource( 1 )
 
 [node name="DebugLight" type="OmniLight" parent="."]
 transform = Transform( -0.966256, 0.167999, -0.195257, -0.257402, -0.601366, 0.756375, 0.00964996, 0.781112, 0.624317, 27.5628, 59.2765, 25.2888 )
+visible = false
 omni_range = 4071.0
 
 [node name="Skybox" type="WorldEnvironment" parent="."]
@@ -80,6 +81,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.9227, 1.10753, -10.6331 )
 
 [node name="Armature001" parent="Player/HeadX/HeadY/Arms" index="1"]
 editor/display_folded = true
+
+[node name="Shot" parent="Player" index="6"]
+unit_db = -12.427
 
 [node name="Ground" type="MeshInstance" parent="."]
 editor/display_folded = true
@@ -293,7 +297,7 @@ light_specular = 0.47
 shadow_enabled = true
 
 [node name="GIProbe" type="GIProbe" parent="."]
-transform = Transform( -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0, 0, 1, 10.1858, 6.79152, -7.52614 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10.1858, 6.79152, -7.52614 )
 visible = false
 extents = Vector3( 22.3762, 223.643, 196.09 )
 energy = 2.05
@@ -316,25 +320,25 @@ transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, 53
 transform = Transform( 0.0851525, 0, -9.99964, 0, 10, 0, 9.99964, 0, 0.0851525, 505.724, 17.3923, 461.744 )
 
 [node name="Building41" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1123.79, 17.3923, -471.603 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1123.79, 17.3923, -471.603 )
 
 [node name="Building19" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1120.08, 17.3923, -169.059 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1120.08, 17.3923, -169.059 )
 
 [node name="Building47" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -897.034, 17.3923, -542.544 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -897.034, 17.3923, -542.544 )
 
 [node name="Building108" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 0.0851525, 0, -9.99964, 0, 10, 0, 9.99964, 0, 0.0851525, 505.195, 17.3923, 399.606 )
 
 [node name="Building43" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1123.79, 17.3923, -409.463 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1123.79, 17.3923, -409.463 )
 
 [node name="Building10" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1012.17, 17.3923, -188.133 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1012.17, 17.3923, -188.133 )
 
 [node name="Building52" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -897.034, 17.3923, -188.133 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -897.034, 17.3923, -188.133 )
 
 [node name="Building59" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -494.042, 17.3923, -621.497 )
@@ -349,19 +353,19 @@ transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, 18
 transform = Transform( 0.0851525, 0, -9.99964, 0, 10, 0, 9.99964, 0, 0.0851525, 502.706, 17.3923, 107.346 )
 
 [node name="Building24" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1012.17, 17.3923, -542.544 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1012.17, 17.3923, -542.544 )
 
 [node name="Building84" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, 415.843, 17.3923, -494.514 )
 
 [node name="Building38" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1123.79, 17.3923, -347.746 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1123.79, 17.3923, -347.746 )
 
 [node name="Building9" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1012.17, 17.3923, -125.993 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1012.17, 17.3923, -125.993 )
 
 [node name="Building51" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -897.034, 17.3923, -125.993 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -897.034, 17.3923, -125.993 )
 
 [node name="Building62" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -556.182, 17.3923, -621.264 )
@@ -376,10 +380,10 @@ transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, 12
 transform = Transform( 0.0851525, 0, -9.99964, 0, 10, 0, 9.99964, 0, 0.0851525, 502.177, 17.3923, 45.2081 )
 
 [node name="Building23" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1012.17, 17.3923, -480.404 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1012.17, 17.3923, -480.404 )
 
 [node name="Building49" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -897.034, 17.3923, -480.404 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -897.034, 17.3923, -480.404 )
 
 [node name="Building60" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -201.774, 17.3923, -622.589 )
@@ -397,13 +401,13 @@ transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, 35
 transform = Transform( 0.0851525, 0, -9.99964, 0, 10, 0, 9.99964, 0, 0.0851525, 504.145, 17.3923, 276.28 )
 
 [node name="Building42" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1123.79, 17.3923, -286.132 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1123.79, 17.3923, -286.132 )
 
 [node name="Building8" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1012.17, 17.3923, -64.2763 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1012.17, 17.3923, -64.2763 )
 
 [node name="Building50" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -897.034, 17.3923, -64.2763 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -897.034, 17.3923, -64.2763 )
 
 [node name="Building61" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -617.898, 17.3923, -621.034 )
@@ -418,10 +422,10 @@ transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, 61
 transform = Transform( 0.0851525, 0, -9.99964, 0, 10, 0, 9.99964, 0, 0.0851525, 501.652, 17.3923, -16.5061 )
 
 [node name="Building22" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1012.17, 17.3923, -418.687 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1012.17, 17.3923, -418.687 )
 
 [node name="Building44" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -897.034, 17.3923, -418.687 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -897.034, 17.3923, -418.687 )
 
 [node name="Building56" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -263.49, 17.3923, -622.358 )
@@ -436,13 +440,13 @@ transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, 6
 transform = Transform( 0.0766371, 0, -8.99967, 0, 9, 0, 8.99967, 0, 0.0766371, 506.391, -1.3, 543.167 )
 
 [node name="Building39" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1123.77, -1.3, -553.029 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1123.77, -1.3, -553.029 )
 
 [node name="Building3" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1012.17, 17.3923, -2.66163 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1012.17, 17.3923, -2.66163 )
 
 [node name="Building53" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -897.034, 17.3923, -2.66163 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -897.034, 17.3923, -2.66163 )
 
 [node name="Building64" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -679.512, 17.3923, -620.804 )
@@ -454,10 +458,10 @@ transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, 29
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -0.180084, 17.3923, -492.959 )
 
 [node name="Building35" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -1012.17, 17.3923, -357.073 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -1012.17, 17.3923, -357.073 )
 
 [node name="Building48" parent="Buildings" instance=ExtResource( 15 )]
-transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -897.034, 17.3923, -357.073 )
+transform = Transform( -4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -897.034, 17.3923, -357.073 )
 
 [node name="Building66" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -325.104, 17.3923, -622.128 )
@@ -466,13 +470,13 @@ transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -3
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, 383.456, 17.3923, -625.598 )
 
 [node name="Building18" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1122.34, -1.3, -133.411 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1122.34, -1.3, -133.411 )
 
 [node name="Building11" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1012.15, -1.3, -269.559 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1012.15, -1.3, -269.559 )
 
 [node name="Building54" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -897.007, -1.3, -269.559 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -897.007, -1.3, -269.559 )
 
 [node name="Building65" parent="Buildings" instance=ExtResource( 16 )]
 transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, -412.617, -1.3, -621.774 )
@@ -487,10 +491,10 @@ transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, 2
 transform = Transform( 0.0766371, 0, -8.99967, 0, 9, 0, 8.99967, 0, 0.0766371, 503.373, -1.3, 188.769 )
 
 [node name="Building36" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1012.15, -1.3, -623.97 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1012.15, -1.3, -623.97 )
 
 [node name="Building45" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -897.007, -1.3, -623.97 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -897.007, -1.3, -623.97 )
 
 [node name="Building57" parent="Buildings" instance=ExtResource( 16 )]
 transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, -58.208, -1.3, -623.099 )
@@ -505,10 +509,10 @@ transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, -
 transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, -35.304, -1.3, -492.801 )
 
 [node name="Building37" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1012.15, -1.3, -321.948 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1012.15, -1.3, -321.948 )
 
 [node name="Building46" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -897.007, -1.3, -321.948 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -897.007, -1.3, -321.948 )
 
 [node name="Building58" parent="Buildings" instance=ExtResource( 16 )]
 transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, -360.228, -1.3, -621.97 )
@@ -523,16 +527,16 @@ transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, 3
 transform = Transform( 0.0766371, 0, -8.99967, 0, 9, 0, 8.99967, 0, 0.0766371, 503.819, -1.3, 241.157 )
 
 [node name="Building40" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1123.77, -1.3, -251.007 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1123.77, -1.3, -251.007 )
 
 [node name="Building15" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1122.34, -1.3, 32.463 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1122.34, -1.3, 32.463 )
 
 [node name="Building16" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1122.34, -1.3, -22.324 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1122.34, -1.3, -22.324 )
 
 [node name="Building17" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1122.34, -1.3, -77.583 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1122.34, -1.3, -77.583 )
 
 [node name="Building13" parent="Buildings" instance=ExtResource( 17 )]
 transform = Transform( 0.0152959, 0, -2.99996, 0, 3, 0, 2.99996, 0, 0.0152959, 22.036, 0, -190.495 )
@@ -559,10 +563,10 @@ transform = Transform( -0.00704575, 0, 2.99999, 0, 3, 0, -2.99999, 0, -0.0070457
 transform = Transform( -0.00704575, 0, 2.99999, 0, 3, 0, -2.99999, 0, -0.00704575, 293.091, 0, -335.894 )
 
 [node name="Building4" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -1012.15, -1.3, 32.463 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -1012.15, -1.3, 32.463 )
 
 [node name="Building55" parent="Buildings" instance=ExtResource( 16 )]
-transform = Transform( -3.93403e-007, 0, 9, 0, 9, 0, -9, 0, -3.93403e-007, -897.007, -1.31332, 32.4626 )
+transform = Transform( -3.93403e-07, 0, 9, 0, 9, 0, -9, 0, -3.93403e-07, -897.007, -1.31332, 32.4626 )
 
 [node name="Building67" parent="Buildings" instance=ExtResource( 16 )]
 transform = Transform( 8.99994, 0, 0.0336348, 0, 9, 0, -0.0336348, 0, 8.99994, -714.636, -1.3, -620.645 )
@@ -673,6 +677,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -719.723, 1.77073, 511.764 )
 stream = ExtResource( 20 )
 volume_db = -28.272
 autoplay = true
+bus = "Music"
 script = ExtResource( 21 )
 
 [node name="Fog" type="Node" parent="."]

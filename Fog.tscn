@@ -9,24 +9,23 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_color = Color( 1, 1, 1, 0.282353 )
+albedo_color = Color( 1, 1, 1, 0.568627 )
 albedo_texture = ExtResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=2]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 1 )
 gravity = Vector3( 0, -0.87, 0 )
-angular_velocity = 0.0
 
 [sub_resource type="QuadMesh" id=3]
 
 [node name="Fog" type="Spatial"]
 
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 30.4113, 0, 0, 0, -14.926, 1.30487e-006, 0, -2.56697e-006, -29.3627, 0, 0, 0 )
+transform = Transform( 30.4113, 0, 0, 0, -14.926, 1.30487e-06, 0, -2.56697e-06, -29.3627, 0, 0, 0 )
 material_override = SubResource( 1 )
 use_in_baked_light = true
-amount = 251
+amount = 1000
 speed_scale = 0.1
 process_material = SubResource( 2 )
 draw_pass_1 = SubResource( 3 )
