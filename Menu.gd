@@ -7,15 +7,14 @@ func _ready():
 	$Start_Menu/Button_Settings.connect("pressed", self, "start_menu_pressed", ["settings"])
 	$Start_Menu/Button_Quit.connect("pressed", self, "start_menu_pressed", ["quit"])
 
+
 func start_menu_pressed(button_name):
 	if button_name == "start":
-		print("Start Game!")
 		get_tree().change_scene("res://World.tscn")
 	elif button_name == "settings":
 		if $SettingsPanel.is_visible():
 			$SettingsPanel.visible = false
 		else:
-			print("Settings")
 			$SettingsPanel.visible = true
 	elif button_name == "scoreboard":
 		get_tree().change_scene("res://Scoreboard.tscn")

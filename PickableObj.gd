@@ -37,7 +37,7 @@ func _process(delta):
 	else:
 		direction = player_pos - translation
 	var dist = sqrt(direction.x*direction.x + direction.y*direction.y + direction.z*direction.z)
-	#print(dist, player_hand.is_colliding())
+
 	if dist < 5 and player_hand.is_colliding():
 		obj = player_hand.get_collider()
 		prompt.visible = true
@@ -47,6 +47,6 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("pick_up") and prompt.visible and sbody.get_instance_id() == obj.get_instance_id():
-		#print("Pick Up")
+
 		emit_signal("item", self) # get_parent()
 		queue_free()

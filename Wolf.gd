@@ -13,14 +13,13 @@ var velocity = Vector3()
 var dir
 
 var canAttack = true
-
+signal killed
 
 func _ready():
 	dir = Vector3(1,0,0)
-
+	self.connect("killed", get_node("/root/World/"), "score_up")
 
 func set_position(pos):
-	#print('translation.x = %s' % translation.x)
 	translation = pos 
 
 

@@ -15,18 +15,15 @@ export var rest = false
 var chosenItemSlot = 1
 
 func updateInventory(inventory):
-	print(inventory)
 	if inventory.size() >= 9:
 		return
 #	for item in inventory:
-#		print(item)
 #		#if !item.has("item_icon"):
 #		#	return
 #		var icon = ResourceLoader.load(item.item_icon)
 #		itemList.add_item("",icon,true)
 #
 	var inventoryLenght = inventory.size()
-	print(inventoryLenght)
 	if inventoryLenght==0:
 		return
 	
@@ -47,10 +44,10 @@ func _input(event):
 			chosenItemSlot = i - 48 #ascii to int conversion
 			itemList.select(chosenItemSlot-1,true)
 			return
-	
+
+
 func _on_ItemList_item_selected(index):
 	print(index)
-	pass # Replace with function body.
 
 
 func _on_Timer_timeout():

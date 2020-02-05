@@ -93,25 +93,27 @@ margin_right = 286.249
 margin_bottom = 328.983
 text = "Scoreboard"
 
-[node name="SettingsPanel" type="PopupPanel" parent="."]
-margin_left = 537.615
-margin_top = 36.4237
-margin_right = 1010.61
-margin_bottom = 380.424
+[node name="Panel" type="Panel" parent="."]
+margin_left = 538.0
+margin_top = 36.0
+margin_right = 1032.0
+margin_bottom = 415.0
 
-[node name="GridContainer" type="GridContainer" parent="SettingsPanel"]
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+editor/display_folded = true
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = -132.5
+margin_top = -55.5
 margin_right = 132.5
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_bottom = 55.5
 custom_constants/vseparation = 20
 custom_constants/hseparation = 50
 columns = 2
 
-[node name="OptionButton" type="OptionButton" parent="SettingsPanel/GridContainer"]
+[node name="OptionButton" type="OptionButton" parent="Panel/GridContainer"]
 margin_right = 97.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
@@ -119,20 +121,21 @@ text = "Item 0"
 align = 1
 script = ExtResource( 6 )
 
-[node name="MASTER" type="GridContainer" parent="SettingsPanel/GridContainer"]
+[node name="MASTER" type="GridContainer" parent="Panel/GridContainer"]
+editor/display_folded = true
 margin_left = 147.0
 margin_right = 265.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 columns = 2
 
-[node name="Label" type="Label" parent="SettingsPanel/GridContainer/MASTER"]
+[node name="Label" type="Label" parent="Panel/GridContainer/MASTER"]
 margin_top = 1.0
 margin_right = 62.0
 margin_bottom = 15.0
 text = "MASTER:  "
 
-[node name="Master" type="HSlider" parent="SettingsPanel/GridContainer/MASTER"]
+[node name="Master" type="HSlider" parent="Panel/GridContainer/MASTER"]
 margin_left = 66.0
 margin_right = 118.0
 margin_bottom = 16.0
@@ -143,7 +146,7 @@ step = 5.0
 ticks_on_borders = true
 script = ExtResource( 7 )
 
-[node name="Fullscreen" type="CheckBox" parent="SettingsPanel/GridContainer"]
+[node name="Fullscreen" type="CheckBox" parent="Panel/GridContainer"]
 margin_top = 40.0
 margin_right = 97.0
 margin_bottom = 64.0
@@ -151,7 +154,8 @@ size_flags_horizontal = 3
 text = "Fullscreen"
 script = ExtResource( 8 )
 
-[node name="MUSIC" type="GridContainer" parent="SettingsPanel/GridContainer"]
+[node name="MUSIC" type="GridContainer" parent="Panel/GridContainer"]
+editor/display_folded = true
 margin_left = 147.0
 margin_top = 40.0
 margin_right = 265.0
@@ -159,13 +163,13 @@ margin_bottom = 64.0
 size_flags_horizontal = 3
 columns = 2
 
-[node name="Label" type="Label" parent="SettingsPanel/GridContainer/MUSIC"]
+[node name="Label" type="Label" parent="Panel/GridContainer/MUSIC"]
 margin_top = 1.0
 margin_right = 62.0
 margin_bottom = 15.0
 text = "MUSIC:    "
 
-[node name="Music" type="HSlider" parent="SettingsPanel/GridContainer/MUSIC"]
+[node name="Music" type="HSlider" parent="Panel/GridContainer/MUSIC"]
 margin_left = 66.0
 margin_right = 118.0
 margin_bottom = 16.0
@@ -176,7 +180,7 @@ step = 5.0
 ticks_on_borders = true
 script = ExtResource( 9 )
 
-[node name="Borderless" type="CheckBox" parent="SettingsPanel/GridContainer"]
+[node name="Borderless" type="CheckBox" parent="Panel/GridContainer"]
 margin_top = 84.0
 margin_right = 97.0
 margin_bottom = 108.0
@@ -184,7 +188,8 @@ size_flags_horizontal = 3
 text = "Borderless"
 script = ExtResource( 10 )
 
-[node name="GridContainer" type="GridContainer" parent="SettingsPanel/GridContainer"]
+[node name="GridContainer" type="GridContainer" parent="Panel/GridContainer"]
+editor/display_folded = true
 margin_left = 147.0
 margin_top = 84.0
 margin_right = 265.0
@@ -192,13 +197,13 @@ margin_bottom = 108.0
 size_flags_horizontal = 3
 columns = 2
 
-[node name="Label" type="Label" parent="SettingsPanel/GridContainer/GridContainer"]
+[node name="Label" type="Label" parent="Panel/GridContainer/GridContainer"]
 margin_top = 1.0
 margin_right = 64.0
 margin_bottom = 15.0
 text = "SOUND:   "
 
-[node name="Sound" type="HSlider" parent="SettingsPanel/GridContainer/GridContainer"]
+[node name="Sound" type="HSlider" parent="Panel/GridContainer/GridContainer"]
 margin_left = 68.0
 margin_right = 118.0
 margin_bottom = 16.0
@@ -207,12 +212,19 @@ size_flags_horizontal = 3
 min_value = -80.0
 max_value = 25.0
 step = 5.0
+ticks_on_borders = true
 script = ExtResource( 11 )
-[connection signal="item_selected" from="SettingsPanel/GridContainer/OptionButton" to="SettingsPanel/GridContainer/OptionButton" method="_on_OptionButton_item_selected"]
-[connection signal="value_changed" from="SettingsPanel/GridContainer/MASTER/Master" to="SettingsPanel/GridContainer/MASTER/Master" method="_on_MasterAudio_value_changed"]
-[connection signal="toggled" from="SettingsPanel/GridContainer/Fullscreen" to="SettingsPanel/GridContainer/Fullscreen" method="_on_CheckBox_toggled"]
-[connection signal="value_changed" from="SettingsPanel/GridContainer/MUSIC/Music" to="SettingsPanel/GridContainer/MUSIC/Music" method="_on_Music_value_changed"]
-[connection signal="toggled" from="SettingsPanel/GridContainer/Borderless" to="SettingsPanel/GridContainer/Borderless" method="_on_Borderless_toggled"]
-[connection signal="value_changed" from="SettingsPanel/GridContainer/GridContainer/Sound" to="SettingsPanel/GridContainer/GridContainer/Sound" method="_on_Sounds_value_changed"]
+
+[node name="SettingsPanel" type="PopupPanel" parent="."]
+margin_left = 537.615
+margin_top = 36.4237
+margin_right = 1010.61
+margin_bottom = 380.424
+[connection signal="item_selected" from="Panel/GridContainer/OptionButton" to="Panel/GridContainer/OptionButton" method="_on_OptionButton_item_selected"]
+[connection signal="value_changed" from="Panel/GridContainer/MASTER/Master" to="Panel/GridContainer/MASTER/Master" method="_on_MasterAudio_value_changed"]
+[connection signal="toggled" from="Panel/GridContainer/Fullscreen" to="Panel/GridContainer/Fullscreen" method="_on_CheckBox_toggled"]
+[connection signal="value_changed" from="Panel/GridContainer/MUSIC/Music" to="Panel/GridContainer/MUSIC/Music" method="_on_Music_value_changed"]
+[connection signal="toggled" from="Panel/GridContainer/Borderless" to="Panel/GridContainer/Borderless" method="_on_Borderless_toggled"]
+[connection signal="value_changed" from="Panel/GridContainer/GridContainer/Sound" to="Panel/GridContainer/GridContainer/Sound" method="_on_Sounds_value_changed"]
 
 [editable path="BG_Animation/Campfire"]

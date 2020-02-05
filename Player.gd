@@ -68,11 +68,7 @@ func handlePositionChange(input):
 		return
 	
 
-func _input(event):
-#	if event.is_action_pressed("camera"): #za ustawienie C na kamere powinno być 10 lat łagru
-#		camera.set_current(not camera.current)
-#		print("Change view FP: %s, TP: %s" % [camera.current, cameraTP.current])
-	
+func _input(event):	
 	if Input.is_key_pressed(KEY_SPACE) || Input.is_key_pressed(KEY_C) || Input.is_key_pressed(KEY_X):
 		handlePositionChange(Input)
 
@@ -158,7 +154,6 @@ func _physics_process(delta):
 				grenade_clone = grenade_scene.instance()
 	
 			get_tree().root.add_child(grenade_clone)
-			print(grenade_clone)
 			grenade_clone.global_transform = $HeadX/HeadY.global_transform
 			grenade_clone.apply_impulse(Vector3(0,0,0), -grenade_clone.global_transform.basis.z * GRENADE_THROW_FORCE)
 			canThrowGrenade = false
@@ -173,9 +168,7 @@ func update_inventory(body):
 		return
 	
 	for i in inventoryLenght:
-		if inventory[i].name == body.items_name:
-			print("item already in inventory!")
-		else:
+		if not inventory[i].name == body.items_name:
 			if inventory.size() >= 9:
 				return
 			inventory.append(body.duplicate())
