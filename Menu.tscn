@@ -155,7 +155,6 @@ rect_min_size = Vector2( 50, 0 )
 min_value = -25.0
 max_value = 25.0
 step = 5.0
-ticks_on_borders = false
 script = ExtResource( 11 )
 [connection signal="item_selected" from="SettingsPanel/GridContainer/OptionButton" to="SettingsPanel/GridContainer/OptionButton" method="_on_OptionButton_item_selected"]
 [connection signal="value_changed" from="SettingsPanel/GridContainer/Master" to="SettingsPanel/GridContainer/Master" method="_on_MasterAudio_value_changed"]
