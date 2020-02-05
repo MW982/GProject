@@ -56,6 +56,7 @@ margin_right = 864.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "SCORE"
+align = 1
 
 [node name="Button" type="Button" parent="Panel"]
 anchor_left = 1.0

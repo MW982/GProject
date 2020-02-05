@@ -21,6 +21,7 @@ func read_scoreboardfile():
 func add_score(text):
 	var label = Label.new()
 	label.text = text
+	label.align = 1
 	grid.add_child(label)
 
 
