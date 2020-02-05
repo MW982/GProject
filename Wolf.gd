@@ -42,9 +42,16 @@ func _on_LookForPlayer_timeout():
 	var player_pos = player.get("translation")
 	var direction = player_pos - translation 
 	var distance = sqrt(direction.x*direction.x+direction.y*direction.y+direction.z*direction.z)
-	if distance < 20:
-		dir = direction
-		dir.y = 0
+	
+#	dir = direction
+#	dir.y = 0
+#	if canAttack:
+#		player.damage(dmg)
+#		canAttack = false
+	dir = direction
+	dir.y = 0
+	
+	if distance < 5:
 		if canAttack:
 			player.damage(dmg)
 			canAttack = false
