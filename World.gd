@@ -43,8 +43,9 @@ func save_score(nick, wave, time, score):
 
 
 func gameover():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var wave = get_node("GUI/Wave").text
-	var nick = "Bolek" 
+	var nick = get_node("/root/global").nickname 
 	save_score(nick, wave, game_time, score)
 	queue_free()
 	get_tree().change_scene("res://Scoreboard.tscn")

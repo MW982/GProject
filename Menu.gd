@@ -12,11 +12,15 @@ func start_menu_pressed(button_name):
 	if button_name == "start":
 		get_tree().change_scene("res://World.tscn")
 	elif button_name == "settings":
-		if $SettingsPanel.is_visible():
-			$SettingsPanel.visible = false
+		if $Panel.is_visible():
+			$Panel.visible = false
 		else:
-			$SettingsPanel.visible = true
+			$Panel.visible = true
 	elif button_name == "scoreboard":
 		get_tree().change_scene("res://Scoreboard.tscn")
 	elif button_name == "quit":
 		get_tree().quit()
+
+
+func _on_Nickname_text_changed(new_text):
+	get_node("/root/global").nickname = new_text

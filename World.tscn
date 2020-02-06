@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://assets/satara_night_2k.hdr" type="Texture" id=2]
@@ -18,11 +18,10 @@
 [ext_resource path="res://Building4.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Building2.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Building1.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Wall.tscn" type="PackedScene" id=19]
-[ext_resource path="res://SpawnPoint.tscn" type="PackedScene" id=20]
-[ext_resource path="res://assets/sounds/background music_2.wav" type="AudioStream" id=21]
-[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=22]
-[ext_resource path="res://Fog.tscn" type="PackedScene" id=23]
+[ext_resource path="res://SpawnPoint.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/sounds/background music_2.wav" type="AudioStream" id=20]
+[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=21]
+[ext_resource path="res://Fog.tscn" type="PackedScene" id=22]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 2 )
@@ -308,6 +307,7 @@ propagation = 0.63
 data = SubResource( 5 )
 
 [node name="Buildings" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Building63" parent="Buildings" instance=ExtResource( 15 )]
 transform = Transform( 9.99993, 0, 0.037372, 0, 10, 0, -0.037372, 0, 9.99993, -139.634, 17.3923, -622.821 )
@@ -642,52 +642,50 @@ transform = Transform( -0.0118347, 0, 2.99998, 0, 3, 0, -2.99998, 0, -0.0118347,
 [node name="Building93" parent="Buildings" instance=ExtResource( 17 )]
 transform = Transform( -0.0118347, 0, 2.99998, 0, 3, 0, -2.99998, 0, -0.0118347, -564.167, 0, 418.952 )
 
-[node name="wall" parent="Buildings" instance=ExtResource( 19 )]
-transform = Transform( 2.72, 0, 0, 0, 1.89, 0, 0, 0, 4.6, -606.98, 0, 864.028 )
-
 [node name="SpawnPoints" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77073, 87.9836 )
 
-[node name="SpawnPoint2" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint2" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.5787, 1.77073, 418.402 )
 
-[node name="SpawnPoint3" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint3" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 613.129, 1.77073, 384.074 )
 
-[node name="SpawnPoint4" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint4" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 670.939, 1.77073, -328.578 )
 
-[node name="SpawnPoint5" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint5" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 396.028, 1.77073, -415.525 )
 
-[node name="SpawnPoint6" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint6" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3655, 1.77073, -329.446 )
 
-[node name="SpawnPoint7" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint7" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -583.147, 1.77073, -490.787 )
 
-[node name="SpawnPoint8" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint8" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -697.716, 1.77073, 105.795 )
 
-[node name="SpawnPoint9" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint9" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1067.31, 1.77073, -32.6064 )
 
-[node name="SpawnPoint10" parent="SpawnPoints" instance=ExtResource( 20 )]
+[node name="SpawnPoint10" parent="SpawnPoints" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -719.723, 1.77073, 511.764 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 21 )
+stream = ExtResource( 20 )
 volume_db = -25.0
 autoplay = true
 bus = "Music"
-script = ExtResource( 22 )
+script = ExtResource( 21 )
 
 [node name="Fog" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="Fog" parent="Fog" instance=ExtResource( 23 )]
+[node name="Fog" parent="Fog" instance=ExtResource( 22 )]
 transform = Transform( 36.226, 0, 0, 0, 1.17275, 0, 0, 0, 31.1296, -100.827, 10.3196, 14.3622 )
 visible = false
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
