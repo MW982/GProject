@@ -2,9 +2,10 @@
 
 [ext_resource path="res://Spatial.gd" type="Script" id=1]
 [ext_resource path="res://assets/Grenade.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://yellow-particle.tres" type="SphereMesh" id=3]
-[ext_resource path="res://red-particle.tres" type="SphereMesh" id=4]
+[ext_resource path="res://assets/yellow-particle.tres" type="SphereMesh" id=3]
+[ext_resource path="res://assets/red-particle.tres" type="SphereMesh" id=4]
 [ext_resource path="res://assets/sounds/grenade_explosion.wav" type="AudioStream" id=5]
+
 
 [sub_resource type="CapsuleShape" id=1]
 height = 0.002
