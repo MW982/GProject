@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="GProject"
 run/main_scene="res://Menu.tscn"
 
+[autoload]
+
+global="*res://global.gd"
+
 [input]
 
 move_f={

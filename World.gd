@@ -3,6 +3,8 @@ extends Spatial
 
 onready var lampObj = preload("res://Lamp.tscn")
 onready var Cloud = preload("res://Cloud.tscn")
+const globalData = preload("res://global.gd")
+onready var global = globalData.new()
 
 onready var Player = get_node("Player")
 
@@ -45,7 +47,7 @@ func save_score(nick, wave, time, score):
 func gameover():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var wave = get_node("GUI/Wave").text
-	var nick = get_node("/root/global").nickname 
+	var nick = global.nickname
 	save_score(nick, wave, game_time, score)
 	queue_free()
 	get_tree().change_scene("res://Scoreboard.tscn")

@@ -1,9 +1,9 @@
 extends RigidBody
 
 
-const GRENADE_DAMAGE = 60
+const GRENADE_DAMAGE = 120
 
-const GRENADE_TIME = 2
+const GRENADE_TIME = 3
 var grenade_timer = 0
 
 const EXPLOSION_WAIT_TIME = 0.98
