@@ -2,7 +2,7 @@ extends Spatial
 
 onready var player = get_node("/root/World/Player/")
 onready var gui = get_node("/root/World/GUI")
-onready var Wolf = preload("res://Wolf.tscn")
+onready var Wolf = preload("res://Enemy.tscn")
 
 
 func _on_SpawnEvery2s_timeout():	
