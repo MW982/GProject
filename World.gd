@@ -3,6 +3,8 @@ extends Spatial
 
 onready var lampObj = preload("res://Lamp.tscn")
 onready var Cloud = preload("res://Cloud.tscn")
+onready var med = preload("res://Med.tscn")
+onready var ammo = preload("res://Ammo.tscn")
 
 onready var Player = get_node("Player")
 
@@ -26,11 +28,19 @@ func _ready():
 		cloud.connect("cloudFreed",self,"addNewCloud")
 		add_child(cloud)
 
-#	for i in range(0,15):
-#		var newobj = lampObj.instance()
-#		pos = Vector3(randf()*10, -2, randf()*10)
-#		newobj.setup("Lamp", Player, pos, lamp)
-#		add_child(newobj)
+	for i in range(0,35):
+		var newobj = med.instance()
+		pos = Vector3(randf()*2000-1000, -2, randf()*2000-1000)
+		newobj.set_position(pos)
+		add_child(newobj)
+
+	for i in range(0,35):
+		var newobj = ammo.instance()
+		pos = Vector3(randf()*2000-1000, -2, randf()*2000-1000)
+		newobj.set_position(pos)
+		add_child(newobj)
+
+
 	
 
 func save_score(nick, wave, time, score):
