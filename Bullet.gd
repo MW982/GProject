@@ -1,9 +1,9 @@
 extends KinematicBody
 
 
-export var speed = 4500
+export var speed = 2200
 export var damage = 20
-export var KILL_TIME = 5
+export var KILL_TIME = 10
 
 var timer = 0
 
