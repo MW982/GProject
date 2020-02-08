@@ -34,6 +34,7 @@ var inventory = []
 
 signal end
 
+var chosenItem = 1
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -71,7 +72,17 @@ func handlePositionChange(input):
 func _input(event):	
 	if Input.is_key_pressed(KEY_SPACE) || Input.is_key_pressed(KEY_C) || Input.is_key_pressed(KEY_X):
 		handlePositionChange(Input)
-
+		
+	if Input.is_key_pressed(KEY_1):
+		chosenItem = 1 #axe
+		$HeadX/HeadY/Arms/Axe.visible = true
+		$HeadX/HeadY/Arms/Armature001/Skeleton/pistol.visible = false
+	if Input.is_key_pressed(KEY_2):
+		chosenItem = 2 #pistol
+		$HeadX/HeadY/Arms/Axe.visible = false
+		$HeadX/HeadY/Arms/Armature001/Skeleton/pistol.visible = true
+		
+		
 	if event is InputEventMouseMotion:
 		if camera.is_current():
 			headX.rotate_y(deg2rad(-event.relative.x*mouse_sensitivity))
@@ -81,19 +92,31 @@ func _input(event):
 				headY.rotate_x(deg2rad(-x_delta))
 				camera_x_rotation += x_delta
 	
-	if event.is_action_pressed("shot") and canGunShot:
+	if event.is_action_pressed("shot") and canGunShot and chosenItem == 2:
 		animationPlayer.play("shooting")
 		$Shot.play()
 		get_node("HeadX/HeadY/Arms/Armature001/Skeleton/BulletEmitter").emit_bullet()
 		canGunShot = false
 
-	
+	if event.is_action_pressed("shot") and canGunShot and chosenItem == 1:
+		animationPlayer.play("axe_attack")
+		var object = $HeadX/HeadY/Arms/RayCast.get_collider()
+		if object:
+			if object.has_method("damage"):
+				object.damage(30)
+		canGunShot = false
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 
-
+func handleAnimation():
+	match(chosenItem):
+		1:
+			animationPlayer.play("axe_idle")
+		2:
+			animationPlayer.play("walkin")
+			
 func _physics_process(delta):
 	var direction = Vector3()
 	var head_basis = headX.get_global_transform().basis
@@ -115,22 +138,22 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_f"):
 		direction -= head_basis.z
 		if not animationPlayer.is_playing():
-			animationPlayer.play("walkin")
-		
+			handleAnimation()
+				
 	elif Input.is_action_pressed("move_b"):
 		direction += head_basis.z
 		if not animationPlayer.is_playing():
-			animationPlayer.play("walkin")
+			handleAnimation()
 	
 	if Input.is_action_pressed("move_r"):
 		direction += head_basis.x
 		if not animationPlayer.is_playing():
-			animationPlayer.play("walkin")
+			handleAnimation()
 
 	elif Input.is_action_pressed("move_l"):
 		direction -= head_basis.x
 		if not animationPlayer.is_playing():
-			animationPlayer.play("walkin")
+			handleAnimation()
 		
 	if Input.is_action_just_pressed("jump") && (positionStatus == 1): #and is_on_floor()
 		velocity.y += jump_power 
