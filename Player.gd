@@ -216,6 +216,10 @@ func heal(hp):
 		health = 100
 	health_bar._on_health_updated(health)
 
+func ammo(ammo_grenade):
+	grenade_amounts["Grenade"] += ammo_grenade  
+
+
 func _on_Timer_timeout():
 	canThrowGrenade = true
 

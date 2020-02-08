@@ -23,12 +23,12 @@
 [ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=21]
 [ext_resource path="res://Fog.tscn" type="PackedScene" id=22]
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="CubeMesh" id=1]
 
-[sub_resource type="ConvexPolygonShape" id=4]
+[sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
-[sub_resource type="GIProbeData" id=5]
+[sub_resource type="GIProbeData" id=3]
 bounds = AABB( -22.3762, -223.643, -196.09, 44.7525, 447.286, 392.181 )
 cell_size = 3.49442
 to_cell_xform = Transform( 0.28617, 0, 0, 0, 0.28617, 0, 0, 0, 0.28617, 6.40342, 64, 56.1152 )
@@ -75,7 +75,7 @@ unit_db = -12.427
 editor/display_folded = true
 transform = Transform( 2000, 0, 0, 0, 1, 0, 0, 0, 2000, -0.593524, -3.31662, -0.505099 )
 layers = 5
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 material/0 = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
@@ -86,7 +86,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="GUI" parent="." instance=ExtResource( 5 )]
 
@@ -291,7 +291,7 @@ visible = false
 extents = Vector3( 22.3762, 223.643, 196.09 )
 energy = 2.05
 propagation = 0.63
-data = SubResource( 5 )
+data = SubResource( 3 )
 
 [node name="Buildings" type="Node" parent="."]
 editor/display_folded = true
@@ -681,3 +681,5 @@ transform = Transform( 36.226, 0, 0, 0, 1.17275, 0, 0, 0, 31.1296, -100.827, 10.
 [editable path="Player/HeadX/HeadY/Arms"]
 
 [editable path="Player/HeadX/HeadY/Arms/Armature001"]
+
+[editable path="GUI"]
