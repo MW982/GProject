@@ -20,15 +20,15 @@ func _ready():
 	dir = Vector3(1,0,0)
 	self.connect("killed", get_node("/root/World/"), "score_up")
 	$AnimationPlayer.play("Walking")
-
+	
 func set_position(pos):
-	if dead:
+	if dead || $AnimationPlayer.current_animation == "Zombie_Attack":
 		return
 	translation = pos 
 
 
 func _physics_process(delta):
-	if dead:
+	if dead || $AnimationPlayer.current_animation == "Zombie_Attack":
 		return
 	aim(delta)
 	velocity = velocity.linear_interpolate(dir.normalized()*speed, acceleration*delta)		
@@ -44,7 +44,6 @@ func aim(delta):
 
 
 func _on_LookForPlayer_timeout():
-	print($AnimationPlayer.current_animation)
 	if is_instance_valid(player):
 		var player_pos = player.get("translation")
 		var direction = player_pos - translation 
@@ -54,12 +53,12 @@ func _on_LookForPlayer_timeout():
 		dir.y = 0
 		
 		if distance < 5 and canAttack and !dead:
-			if $AnimationPlayer.current_animation != "zombieAttack":
-				$AnimationPlayer.play("zombieAttack")
+			$AnimationPlayer.play("Zombie_Attack")
 			player.damage(dmg)
 			canAttack = false
 		else:
-			
+			if !$AnimationPlayer.is_playing():
+				$AnimationPlayer.play("Walking")
 			pass
 
 func _on_ChangeDirection_timeout():

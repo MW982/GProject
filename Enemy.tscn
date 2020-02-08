@@ -5,7 +5,7 @@
 [ext_resource path="res://HealthBar3D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/enemies/Death.anim" type="Animation" id=4]
 [ext_resource path="res://assets/enemies/Walking.anim" type="Animation" id=5]
-[ext_resource path="res://assets/enemies/zombieAttack.anim" type="Animation" id=6]
+[ext_resource path="res://assets/enemies/Zombie_Attack.anim" type="Animation" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "bodyMesh"
@@ -216,6 +216,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 4.07
 autostart = true
 
 [node name="HealthBar3D" parent="." instance=ExtResource( 3 )]
@@ -224,7 +225,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.25204, 0 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Death = ExtResource( 4 )
 anims/Walking = ExtResource( 5 )
-anims/zombieAttack = ExtResource( 6 )
+anims/Zombie_Attack = ExtResource( 6 )
 [connection signal="timeout" from="LookForPlayer" to="." method="_on_LookForPlayer_timeout"]
 [connection signal="timeout" from="ChangeDirection" to="." method="_on_ChangeDirection_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
