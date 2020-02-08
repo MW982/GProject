@@ -19,6 +19,7 @@ signal killed
 func _ready():
 	dir = Vector3(1,0,0)
 	self.connect("killed", get_node("/root/World/"), "score_up")
+	$AnimationPlayer.play("Walking")
 
 func set_position(pos):
 	if dead:
@@ -43,41 +44,35 @@ func aim(delta):
 
 
 func _on_LookForPlayer_timeout():
+	print($AnimationPlayer.current_animation)
 	if is_instance_valid(player):
 		var player_pos = player.get("translation")
 		var direction = player_pos - translation 
 		var distance = sqrt(direction.x*direction.x+direction.y*direction.y+direction.z*direction.z)
 		
-	#	dir = direction
-	#	dir.y = 0
-	#	if canAttack:
-	#		player.damage(dmg)
-	#		canAttack = false
 		dir = direction
 		dir.y = 0
 		
-		if distance < 5:
-			if canAttack:
-				$Walking.stop()
-				$ZombieAttack.play("Zombie_Attack")
-				player.damage(dmg)
-				canAttack = false
+		if distance < 5 and canAttack and !dead:
+			if $AnimationPlayer.current_animation != "zombieAttack":
+				$AnimationPlayer.play("zombieAttack")
+			player.damage(dmg)
+			canAttack = false
 		else:
-			$ZombieAttack.stop()
-			$Walking.play("default")
+			
+			pass
 
 func _on_ChangeDirection_timeout():
 	dir = Vector3(randf()*20-10, -0.670, randf()*20-10)
 
-
 func damage(dmg):
 	health -= dmg
 	speed += 5
-	health_bar.update(health)
+	health_bar.update(health) 
 	if health <= 0:
-		$Death.play("Death")
+		$AnimationPlayer.play("Death")
 		dead = true
-		yield($Death,"animation_finished")
+		yield($AnimationPlayer,"animation_finished")
 		emit_signal("killed")
 		queue_free()
 

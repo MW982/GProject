@@ -110,6 +110,7 @@ margin_bottom = 30.0
 text = "Scoreboard"
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 margin_left = 528.21
 margin_top = 36.0
 margin_right = 1022.21
