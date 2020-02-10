@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Arms.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/axe/axe_attack.anim" type="Animation" id=3]
-[ext_resource path="res://assets/axe/axe_idle.anim" type="Animation" id=4]
-[ext_resource path="res://testAxe.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/sounds/classic_hurt (online-audio-converter.com).wav" type="AudioStream" id=6]
-[ext_resource path="res://assets/sounds/gun_shot.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/axe/axe_attack_fix.anim" type="Animation" id=4]
+[ext_resource path="res://assets/axe/axe_idle.anim" type="Animation" id=5]
+[ext_resource path="res://assets/axe/axe_idle_fix.anim" type="Animation" id=6]
+[ext_resource path="res://testAxe.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sounds/classic_hurt (online-audio-converter.com).wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/gun_shot.wav" type="AudioStream" id=9]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.8
@@ -32,37 +34,45 @@ current = true
 far = 1000.0
 
 [node name="Arms" parent="HeadX/HeadY" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0301896, -1.71062, -0.665428 )
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -0.0301896, -1.71062, -0.665428 )
 
 [node name="Armature" parent="HeadX/HeadY/Arms" index="0"]
 transform = Transform( 0.977356, 0, -0.211602, 0, 1, 0, 0.211602, 0, 0.977356, 0, 0, 0 )
 
+[node name="Armature001" parent="HeadX/HeadY/Arms" index="1"]
+transform = Transform( 0.977356, 0, -0.211602, 0, 1, 0, 0.211602, 0, 0.977356, 0, 0, 0 )
+
 [node name="pistol" parent="HeadX/HeadY/Arms/Armature001/Skeleton" index="1"]
-transform = Transform( 1, 0, -6.6666e-10, -9.31323e-10, 1, 0, -4.29281e-10, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, -6.6666e-010, -9.31323e-010, 1, 0, -4.29281e-010, 0, 1, 0, 0, 0 )
+visible = false
 
 [node name="AnimationPlayer" parent="HeadX/HeadY/Arms" index="2"]
-autoplay = "axe_idle"
+autoplay = "axe_idle_fix"
 anims/axe_attack = ExtResource( 3 )
-anims/axe_idle = ExtResource( 4 )
+anims/axe_attack_fix = ExtResource( 4 )
+anims/axe_idle = ExtResource( 5 )
+anims/axe_idle_fix = ExtResource( 6 )
 
-[node name="Axe" parent="HeadX/HeadY/Arms" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148586, 0.258481, 0 )
+[node name="Axe" parent="HeadX/HeadY/Arms" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.148586, -0.0301055, 0 )
+visible = false
 
 [node name="RayCast" type="RayCast" parent="HeadX/HeadY/Arms"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112182, 1.58268, -0.00660306 )
 enabled = true
-cast_to = Vector3( 0, 0, 3.38 )
+cast_to = Vector3( 0, 0, 5.69 )
+collision_mask = 4
 collide_with_areas = true
 
 [node name="Inventory" type="Node" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -8.50558e-05, 0.000566244, 0.00243402 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, -8.50558e-005, 0.000566244, 0.00243402 )
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0265933, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, 0.0265933, 0 )
 shape = SubResource( 2 )
 
 [node name="Grenade Timer" type="Timer" parent="."]
@@ -70,11 +80,11 @@ wait_time = 1.5
 autostart = true
 
 [node name="Damage" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 8 )
 bus = "Sound"
 
 [node name="Shot" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource( 9 )
 bus = "Sound"
 
 [node name="GunShot Timer" type="Timer" parent="."]

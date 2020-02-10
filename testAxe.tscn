@@ -7,6 +7,7 @@
 
 [node name="Armature" parent="." index="0"]
 transform = Transform( 0.977356, 0, -0.211602, 0, 1, 0, 0.211602, 0, 0.977356, 0, 0, 0 )
+visible = false
 
 [node name="Armature001" parent="." index="1"]
 transform = Transform( 0.157133, -0.0131586, -0.0151153, -0.0134719, 0.019096, -0.156672, 0.0148367, 0.156699, 0.0178235, 0.000780395, 1.5777, 0.166862 )

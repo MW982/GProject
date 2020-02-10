@@ -75,9 +75,11 @@ func _input(event):
 		
 	if Input.is_key_pressed(KEY_1):
 		chosenItem = 1 #axe
-		$HeadX/HeadY/Arms/Axe.visible = true
+		animationPlayer.play("axe_idle_fix")
+		#$HeadX/HeadY/Arms/Axe.visible = true
 		$HeadX/HeadY/Arms/Armature001/Skeleton/pistol.visible = false
 	if Input.is_key_pressed(KEY_2):
+		animationPlayer.play("walkin")
 		chosenItem = 2 #pistol
 		$HeadX/HeadY/Arms/Axe.visible = false
 		$HeadX/HeadY/Arms/Armature001/Skeleton/pistol.visible = true
@@ -99,11 +101,12 @@ func _input(event):
 		canGunShot = false
 
 	if event.is_action_pressed("shot") and canGunShot and chosenItem == 1:
-		animationPlayer.play("axe_attack")
+		animationPlayer.play("axe_attack_fix")
 		var object = $HeadX/HeadY/Arms/RayCast.get_collider()
+		print(object)
 		if object:
 			if object.has_method("damage"):
-				object.damage(30)
+				object.damage(80)
 		canGunShot = false
 
 func _process(delta):
