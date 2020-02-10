@@ -24,6 +24,7 @@ margin_bottom = -0.73938
 script = ExtResource( 1 )
 
 [node name="BG_Animation" type="Spatial" parent="."]
+editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="Menu_Camera" type="Camera" parent="BG_Animation"]
@@ -35,6 +36,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033226, -0.00802994, -0.00
 environment = ExtResource( 3 )
 
 [node name="Campfire" parent="BG_Animation" instance=ExtResource( 4 )]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6202, -1.54237, -7.51135 )
 
 [node name="AudioStreamPlayer3D" parent="BG_Animation/Campfire" index="3"]
@@ -55,12 +57,11 @@ margin_bottom = 1.36035
 
 [node name="Title_Label" type="Label" parent="Start_Menu"]
 margin_left = 15.6038
-margin_top = 3.70764
+margin_top = 2.70764
 margin_right = 198.604
-margin_bottom = 76.7076
+margin_bottom = 75.7076
 rect_scale = Vector2( 2, 2 )
-text = "Main Menu 
-Under Construction"
+text = "GProject"
 align = 1
 valign = 1
 
@@ -110,9 +111,9 @@ text = "Scoreboard"
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
-margin_left = 528.21
+margin_left = 513.246
 margin_top = 36.0
-margin_right = 1022.21
+margin_right = 1007.25
 margin_bottom = 415.0
 
 [node name="Label" type="Label" parent="Panel"]
@@ -249,12 +250,6 @@ max_value = 25.0
 step = 5.0
 ticks_on_borders = true
 script = ExtResource( 11 )
-
-[node name="SettingsPanel" type="PopupPanel" parent="."]
-margin_left = 537.615
-margin_top = 36.4237
-margin_right = 1010.61
-margin_bottom = 380.424
 [connection signal="text_changed" from="Panel/Label/Nickname" to="." method="_on_Nickname_text_changed"]
 [connection signal="item_selected" from="Panel/GridContainer/OptionButton" to="Panel/GridContainer/OptionButton" method="_on_OptionButton_item_selected"]
 [connection signal="value_changed" from="Panel/GridContainer/MASTER/Master" to="Panel/GridContainer/MASTER/Master" method="_on_MasterAudio_value_changed"]
