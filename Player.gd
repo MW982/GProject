@@ -2,11 +2,11 @@ extends KinematicBody
 
 export var health = 100
 
-export var speed = 60
+export var speed = 30
 export var velocity = Vector3()
 export var acceleration = 7
 export var gravity = 0.98
-export var jump_power = 300
+export var jump_power = 30
 export var mouse_sensitivity = 0.3
 
 var camera_x_rotation = 0
@@ -158,7 +158,7 @@ func _physics_process(delta):
 		if not animationPlayer.is_playing():
 			handleAnimation()
 		
-	if Input.is_action_just_pressed("jump") && (positionStatus == 1): #and is_on_floor()
+	if Input.is_action_just_pressed("jump") && (positionStatus == 1) and is_on_floor():
 		velocity.y += jump_power 
 		
 	direction = direction.normalized()

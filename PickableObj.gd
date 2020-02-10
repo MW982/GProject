@@ -47,6 +47,6 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("pick_up") and prompt.visible and sbody.get_instance_id() == obj.get_instance_id():
-
+		print('Bolek')
 		emit_signal("item", self) # get_parent()
 		queue_free()

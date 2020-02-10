@@ -16,17 +16,17 @@ albedo_texture = ExtResource( 1 )
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 1 )
 gravity = Vector3( 0, -0.87, 0 )
-angular_velocity = 5.46506e-044
+angular_velocity = 5.46506e-44
 
 [sub_resource type="QuadMesh" id=3]
 
 [node name="Fog" type="Spatial"]
 
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 30.4113, 0, 0, 0, -14.926, 1.30487e-006, 0, -2.56697e-006, -29.3627, 0, 0, 0 )
+transform = Transform( 30.4113, 0, 0, 0, -14.926, 1.30487e-06, 0, -2.56697e-06, -29.3627, 0, 0, 0 )
 material_override = SubResource( 1 )
 use_in_baked_light = true
-amount = 1000
+amount = 100
 speed_scale = 0.01
 process_material = SubResource( 2 )
 draw_pass_1 = SubResource( 3 )

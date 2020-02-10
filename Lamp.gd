@@ -13,4 +13,5 @@ func setup(name_, player_, pos_, asset_):
 
 
 func clear(items_name):
+	print("Bolek2")
 	queue_free()

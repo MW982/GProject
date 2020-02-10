@@ -7,17 +7,17 @@ metallic = 0.158333
 
 [sub_resource type="SpatialMaterial" id=2]
 resource_name = "Stone1Fence"
-albedo_color = Color( 0.8, 0, 0.00242, 1 )
+albedo_color = Color( 0.156863, 0.219608, 0.152941, 1 )
 metallic = 0.5
 
 [sub_resource type="SpatialMaterial" id=3]
 resource_name = "Wall_Pointy"
-albedo_color = Color( 0, 0.8, 0.012222, 1 )
+albedo_color = Color( 0.631373, 0.631373, 0.631373, 1 )
 metallic = 0.5
 
 [sub_resource type="SpatialMaterial" id=4]
 resource_name = "Wall_Iron"
-albedo_color = Color( 0.021583, 0, 0.8, 1 )
+albedo_color = Color( 0.462745, 0.462745, 0.568627, 1 )
 metallic = 0.5
 
 [sub_resource type="ArrayMesh" id=5]
